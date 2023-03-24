@@ -1,0 +1,1 @@
+# make a class that defines a course and its contents
