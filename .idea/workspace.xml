@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Made a file to define course">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Made a constructor method for Course">
       <change beforePath="$PROJECT_DIR$/Course.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -146,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679625614996</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Made a constructor method for Course">
+      <created>1680224685676</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1680224685676</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -164,7 +170,8 @@
     <MESSAGE value="Made a file for main" />
     <MESSAGE value="Made a website file" />
     <MESSAGE value="Made a file to define course" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made a file to define course" />
+    <MESSAGE value="Made a constructor method for Course" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a constructor method for Course" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

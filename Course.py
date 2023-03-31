@@ -9,6 +9,8 @@ class Course:
     def getName(self):
         print(self.name)
     # method three: retrieve class code
-
+    def getCode(self):
+        print(self.code)
 Java_I = Course("Introduction to Java", "CS1321", True)
 Java_I.getName()
+Java_I.getCode()
