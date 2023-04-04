@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Made a constructor method for Course">
+    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Made a method for retrieving whether student has taken the Course">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Course.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -152,7 +153,28 @@
       <option name="project" value="LOCAL" />
       <updated>1680224685676</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Made a method for retrieving the name of a Course">
+      <created>1680224938652</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1680224938652</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Made a method for retrieving the code listing of a Course">
+      <created>1680225065721</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1680225065721</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Made a method for retrieving whether student has taken the Course">
+      <created>1680225170441</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1680225170441</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -171,7 +193,10 @@
     <MESSAGE value="Made a website file" />
     <MESSAGE value="Made a file to define course" />
     <MESSAGE value="Made a constructor method for Course" />
-    <option name="LAST_COMMIT_MESSAGE" value="Made a constructor method for Course" />
+    <MESSAGE value="Made a method for retrieving the name of a Course" />
+    <MESSAGE value="Made a method for retrieving the code listing of a Course" />
+    <MESSAGE value="Made a method for retrieving whether student has taken the Course" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made a method for retrieving whether student has taken the Course" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
