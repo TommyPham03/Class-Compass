@@ -27,7 +27,7 @@ class Course:
         print("Course Name: " + self.getName() + "\n"
               + "Subject: " + self.getSubject() + "\n"
               + "Course Code: " + self.getCode() + "\n"
-              + "Course Hours: " + str(self.getHours()) + " Hours" + "\n"
+              + "Course Hours: " + str(self.getHours()) + " Hour(s)" + "\n"
               + "Taken: " + str(self.isTaken()) + "\n")
 
 # Java_I = Course("Introduction to Java", "CS1321", True)
