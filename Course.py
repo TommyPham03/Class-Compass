@@ -21,7 +21,7 @@ class Course:
         return hour
     #method eight: get subject
     def getSubject(self):
-        return self.getCode()[:-4]
+        return self.code[:-4]
     #method seven: print
     def print(self):
         print("Course Name: " + self.getName() + "\n"
@@ -30,10 +30,11 @@ class Course:
               + "Course Hours: " + str(self.getHours()) + " Hours" + "\n"
               + "Taken: " + str(self.isTaken()) + "\n")
 
-Java_I = Course("Introduction to Java", "CS1321", True)
-Java_I.print()
+# Java_I = Course("Introduction to Java", "CS1321", True)
+# Java_I.print()
+#
+# Calc_I_0 = Course("Calculus & Analyt Geometry I", "MATH1823", True)
+# Calc_I_0.print()
 
-Calc_I_0 = Course("Calculus & Analyt Geometry I", "MATH1823", True)
-Calc_I_0.print()
 
 
