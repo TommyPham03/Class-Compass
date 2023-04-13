@@ -2,15 +2,46 @@
 <html>
 <head>
 	<title>Login</title>
+	<style>
+		body {
+			background-color: darkred; /* Sets the background color of the entire page to dark red */
+			display: flex; /* Makes the body a flex container to center the login form vertically and horizontally */
+			align-items: center; /* Centers the login form vertically */
+			justify-content: center; /* Centers the login form horizontally */
+			height: 100vh; /* Sets the height of the body to 100% of the viewport height to center the form vertically */
+			margin: 0; /* Removes default margin */
+		}
+		form {
+			background-color: white; /* Sets the background color of the login form to white */
+			border: 5px solid red; /* Adds a red border around the login form */
+			padding: 20px; /* Adds padding to the form to increase the border size */
+			width: 300px; /* Sets the width of the login form */
+			text-align: center; /* Centers the login word and login box horizontally */
+		}
+		h1 {
+			margin-top: 0; /* Removes default margin from h1 element */
+		}
+		label, input, input[type="submit"] {
+			display: block; /* Puts each form element on a new line */
+			margin-bottom: 10px; /* Adds margin between form elements */
+		}
+		input[type="submit"] {
+			margin-top: 10px; /* Adds margin above the submit button */
+		}
+	</style>
 </head>
 <body>
-	<h1>Login</h1>
 	<form method="POST" action="{{ url_for('login') }}">
+		<h1>Login</h1> <!-- Moved the login word to the top of the form -->
 		<label for="username">Username:</label>
-		<input type="text" id="username" name="username"><br>
+		<input type="text" id="username" name="username">
 		<label for="password">Password:</label>
-		<input type="password" id="password" name="password"><br>
+		<input type="password" id="password" name="password">
 		<input type="submit" value="Login">
 	</form>
 </body>
 </html>
+
+
+
+
