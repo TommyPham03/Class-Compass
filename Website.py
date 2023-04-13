@@ -31,7 +31,7 @@ def create_app():
 
             if user and check_password_hash(user.password, password):
                 session["username"] = username
-                return redirect("/")
+                return redirect("/schedule")
             else:
                 return "Invalid username or password"
 
@@ -55,6 +55,10 @@ def create_app():
         session.pop("username", None)
         return redirect("/login")
 
+    @app.route("/schedule")
+    def schedule():
+        return render_template("schedule.html")
+
     return app
 
 class User(db.Model):
@@ -65,4 +69,5 @@ class User(db.Model):
 if __name__ == "__main__":
     app = create_app()
     app.run(debug=True)
+
 
