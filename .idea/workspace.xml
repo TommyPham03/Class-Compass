@@ -47,7 +47,7 @@
       <recent name="C:\Users\jerou\PycharmProjects\Class-Compass" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Course">
+  <component name="RunManager" selected="Python.Website">
     <configuration name="Course" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Class-Compass" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -140,8 +140,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Course" />
         <item itemvalue="Python.Website" />
+        <item itemvalue="Python.Course" />
         <item itemvalue="Python.Playground" />
       </list>
     </recent_temporary>
