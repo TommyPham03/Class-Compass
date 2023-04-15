@@ -129,10 +129,10 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
-      <item itemvalue="Python.Playground" />
       <item itemvalue="Python.Course" />
+      <item itemvalue="Python.Playground" />
       <item itemvalue="Python.Website" />
+      <item itemvalue="Python.main" />
     </list>
     <recent_temporary>
       <list>
