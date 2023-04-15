@@ -4,7 +4,7 @@ class Course:
     def __init__(self, name, code, list_pr, taken):
         self.name = name
         self.code = code
-        self.list_pr = list.pr
+        self.list_pr = list_pr
         self.taken = taken
 
     # method two: retrieve name
@@ -37,6 +37,8 @@ class Course:
               + "Course Hours: " + str(self.getHours()) + " Hour(s)" + "\n"
               + "Taken: " + str(self.isTaken()) + "\n")
 
+
+
     def take(self):
         for course in self.list_pr:
             if not course.taken:
@@ -44,3 +46,12 @@ class Course:
         return True
 
 class Reader:
+    str = "Programming Structures and Abstractions,CS2334,CS1321/CS1323/CS1324 MATH1523+,False"
+    listy = str.split(",")
+    print(listy)
+    prereq = listy[2].split(" ")
+    for i, coursey in enumerate(prereq):
+        prereq[i] =coursey.split("/")
+    print(prereq)
+    course = Course(listy[0], listy[1], prereq, listy[3])
+    course.print()

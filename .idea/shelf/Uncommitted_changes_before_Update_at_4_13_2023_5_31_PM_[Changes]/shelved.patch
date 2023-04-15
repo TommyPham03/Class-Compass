@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Index: Planner.py
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
@@ -16,6 +17,27 @@ diff --git a/Planner.py b/Planner.py
          self.hours = hours
          self.semesters = semesters
          self.course_list = course_list
+=======
+Index: Course.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># make a class that defines a course and its contents\r\nclass Course:\r\n    # method one: constructor\r\n    def __init__(self, name, code, list_pr, taken):\r\n        self.name = name\r\n        self.code = code\r\n        self.list_pr = list.pr\r\n        self.taken = taken\r\n\r\n    # method two: retrieve name\r\n    def getName(self):\r\n        return self.name\r\n\r\n    # method three: retrieve class code\r\n    def getCode(self):\r\n        return self.code\r\n\r\n    # method four: retrieve whether class has been taken or not\r\n    def isTaken(self):\r\n        return self.taken\r\n\r\n    # method five: retrieve hours the class is worth using course code\r\n    def getHours(self):\r\n        code = self.getCode()\r\n        hour = int(code[-1])\r\n        return hour\r\n\r\n    # method eight: get subject\r\n    def getSubject(self):\r\n        return self.code[:-4]\r\n\r\n    # method seven: print\r\n    def print(self):\r\n        print(\"Course Name: \" + self.getName() + \"\\n\"\r\n              + \"Subject: \" + self.getSubject() + \"\\n\"\r\n              + \"Course Code: \" + self.getCode() + \"\\n\"\r\n              + \"Course Hours: \" + str(self.getHours()) + \" Hour(s)\" + \"\\n\"\r\n              + \"Taken: \" + str(self.isTaken()) + \"\\n\")\r\n\r\n    def take(self):\r\n        for course in self.list_pr:\r\n            if not course.taken:\r\n                return False\r\n        return True\r\n\r\nclass Reader:\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Course.py b/Course.py
+--- a/Course.py	(revision f4ab0717d316458f7842ffb6ee7e8a5a9191247f)
++++ b/Course.py	(date 1681424970050)
+@@ -44,3 +44,7 @@
+         return True
+ 
+ class Reader:
++    file = open("example.txt", "r")
++    contents = file.read()
++    file.close()
++    print(contents)
+\ No newline at end of file
+>>>>>>> origin/main
 Index: .idea/workspace.xml
 IDEA additional info:
 Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
@@ -24,6 +46,7 @@ Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
 <+>UTF-8
 ===================================================================
 diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+<<<<<<< HEAD
 --- a/.idea/workspace.xml	(revision ac19fdf82b1210198a121511f092f57e951c7fc2)
 +++ b/.idea/workspace.xml	(date 1681425078054)
 @@ -10,7 +10,7 @@
@@ -36,6 +59,27 @@ diff --git a/.idea/workspace.xml b/.idea/workspace.xml
      <option name="SHOW_DIALOG" value="false" />
      <option name="HIGHLIGHT_CONFLICTS" value="true" />
 @@ -44,12 +44,6 @@
+=======
+--- a/.idea/workspace.xml	(revision f4ab0717d316458f7842ffb6ee7e8a5a9191247f)
++++ b/.idea/workspace.xml	(date 1681424598431)
+@@ -4,13 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Create a print method that provides all relevant detail of a course">
+-      <change beforePath="$PROJECT_DIR$/.idea/Class-Compass.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Class-Compass.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_2023_4_21_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_2023_4_21_PM__Changes_.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_2023_4_35_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_6_2023_4_35_PM__Changes_.xml" afterDir="false" />
++    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Start making a class called Reader that takes in course data via txt document">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/login.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Course.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course.py" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -44,13 +40,7 @@
+>>>>>>> origin/main
      &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
    }
  }</component>
@@ -45,6 +89,7 @@ diff --git a/.idea/workspace.xml b/.idea/workspace.xml
 -      <recent name="C:\Users\jerou\PycharmProjects\Class-Compass" />
 -    </key>
 -  </component>
+<<<<<<< HEAD
    <component name="RunManager" selected="Python.Website">
      <configuration name="Course" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
        <module name="Class-Compass" />
@@ -86,3 +131,47 @@ diff --git a/.idea/misc.xml b/.idea/misc.xml
    <component name="PyCharmProfessionalAdvertiser">
      <option name="shown" value="true" />
    </component>
+=======
+-  <component name="RunManager" selected="Python.Website">
++  <component name="RunManager" selected="Python.Playground">
+     <configuration name="Course" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+       <module name="Class-Compass" />
+       <option name="INTERPRETER_OPTIONS" value="" />
+@@ -143,9 +133,9 @@
+     </list>
+     <recent_temporary>
+       <list>
+-        <item itemvalue="Python.Website" />
+         <item itemvalue="Python.Playground" />
+         <item itemvalue="Python.Course" />
++        <item itemvalue="Python.Website" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -214,7 +204,14 @@
+       <option name="project" value="LOCAL" />
+       <updated>1680645439713</updated>
+     </task>
+-    <option name="localTasksCounter" value="9" />
++    <task id="LOCAL-00009" summary="Start making a class called Reader that takes in course data via txt document">
++      <created>1681423504193</created>
++      <option name="number" value="00009" />
++      <option name="presentableId" value="LOCAL-00009" />
++      <option name="project" value="LOCAL" />
++      <updated>1681423504193</updated>
++    </task>
++    <option name="localTasksCounter" value="10" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -237,7 +234,8 @@
+     <MESSAGE value="Made a method for retrieving the code listing of a Course" />
+     <MESSAGE value="Made a method for retrieving whether student has taken the Course" />
+     <MESSAGE value="Create a print method that provides all relevant detail of a course" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Create a print method that provides all relevant detail of a course" />
++    <MESSAGE value="Start making a class called Reader that takes in course data via txt document" />
++    <option name="LAST_COMMIT_MESSAGE" value="Start making a class called Reader that takes in course data via txt document" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+>>>>>>> origin/main
