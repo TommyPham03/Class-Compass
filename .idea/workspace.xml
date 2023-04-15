@@ -228,7 +228,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681425031757</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="made the enter classes page again">
+      <created>1681601176204</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1681601176204</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -254,7 +261,8 @@
     <MESSAGE value="add in logo image" />
     <MESSAGE value="realign login text to the left" />
     <MESSAGE value="made the schedule page" />
-    <option name="LAST_COMMIT_MESSAGE" value="made the schedule page" />
+    <MESSAGE value="made the enter classes page again" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the enter classes page again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
