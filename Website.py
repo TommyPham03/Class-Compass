@@ -18,7 +18,8 @@ def create_app():
     @app.route("/")
     def index():
         if "username" in session:
-            return f"Welcome, {session['username']}!<br><a href='/logout'>Logout</a>"
+            #return f"Welcome, {session['username']}!<br><a href='/logout'>Logout</a>"
+            return redirect("/schedule")
         else:
             return redirect("/login")
 
@@ -59,15 +60,35 @@ def create_app():
     def schedule():
         return render_template("schedule.html")
 
+    @app.route("/enter_classes", methods=["GET", "POST"])
+    def enter_classes():
+        if request.method == "POST":
+            classes = request.form.getlist("class")
+            for course in classes:
+                # create a new Course object and save it to the database
+                new_course = Course(name=course, user_id=session["user_id"])
+                db.session.add(new_course)
+            db.session.commit()
+            return redirect("/schedule")
+        else:
+            return render_template("enter_classes.html")
+
     return app
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(50), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
+    courses = db.relationship("Course", backref="user", lazy=True)
+
+class Course(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 if __name__ == "__main__":
     app = create_app()
     app.run(debug=True)
+
 
 
