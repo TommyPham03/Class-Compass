@@ -18,6 +18,7 @@ def create_app():
     @app.route("/")
     def index():
         if "username" in session:
+            #return f"Welcome, {session['username']}!<br><a href='/logout'>Logout</a>"
             return redirect("/schedule")
         else:
             return redirect("/login")
@@ -31,7 +32,6 @@ def create_app():
 
             if user and check_password_hash(user.password, password):
                 session["username"] = username
-                session["user_id"] = user.id  # Set the user_id value in the session
                 return redirect("/schedule")
             else:
                 return "Invalid username or password"
@@ -64,38 +64,27 @@ def create_app():
     def enter_classes():
         if request.method == "POST":
             classes = request.form.getlist("class")
-            hours = request.form.getlist("hours")
-            for i in range(len(classes)):
+            for course in classes:
                 # create a new Course object and save it to the database
-                new_course = Course(name=classes[i], hours=hours[i], user_id=session["user_id"])
+                new_course = Course(name=course, user_id=session["user_id"])
                 db.session.add(new_course)
             db.session.commit()
             return redirect("/schedule")
         else:
             return render_template("enter_classes.html")
 
-    @app.route("/view_classes")
-    def view_classes():
-        if "username" not in session:
-            return redirect("/login")
-        user = User.query.filter_by(username=session["username"]).first()
-        courses = user.courses
-        return render_template("view_classes.html", courses=courses)
-
-
-    class User(db.Model):
-        id = db.Column(db.Integer, primary_key=True)
-        username = db.Column(db.String(50), nullable=False, unique=True)
-        password = db.Column(db.String(255), nullable=False)
-        courses = db.relationship("Course", backref="user", lazy=True)
-
-    class Course(db.Model):
-        id = db.Column(db.Integer, primary_key=True)
-        name = db.Column(db.String(50), nullable=False)
-        hours = db.Column(db.Integer, nullable=False)
-        user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-
     return app
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(50), nullable=False, unique=True)
+    password = db.Column(db.String(255), nullable=False)
+    courses = db.relationship("Course", backref="user", lazy=True)
+
+class Course(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(50), nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 if __name__ == "__main__":
     app = create_app()
