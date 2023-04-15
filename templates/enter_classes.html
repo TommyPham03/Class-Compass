@@ -78,24 +78,27 @@ data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB4AAAAQ4CAYAAADo08FDAAAgAElEQVR4nO
 	</header>
 	<main>
 	<h1>Enter Classes</h1>
-	<form method="POST" action="{{ url_for('enter_classes') }}">
-		<label for="classname">Class Name:</label>
-		<input type="text" id="classname" name="classname">
-		<label for="professor">Professor:</label>
-		<input type="text" id="professor" name="professor">
-		<label for="semester">Semester:</label>
-		<select id="semester" name="semester">
-			<option value="freshman_fall">Freshman Fall Semester</option>
-			<option value="freshman_spring">Freshman Spring Semester</option>
-			<option value="sophomore_fall">Sophomore Fall Semester</option>
-			<option value="sophomore_spring">Sophomore Spring Semester</option>
-			<option value="junior_fall">Junior Fall Semester</option>
-			<option value="junior_spring">Junior Spring Semester</option>
-			<option value="senior_fall">Senior Fall Semester</option>
-			<option value="senior_spring">Senior Spring Semester</option>
-		</select>
-		<input type="submit" value="Submit">
-	</form>
+
+<form method="POST" action="{{ url_for('enter_classes') }}">
+	<label for="classname">Class Name:</label>
+	<input type="text" id="classname" name="classname">
+	<label for="professor">Professor:</label>
+	<input type="text" id="professor" name="professor">
+	<label for="semester">Semester:</label>
+	<select id="semester" name="semester">
+		<option value="Freshman Fall">Freshman Fall</option>
+		<option value="Freshman Spring">Freshman Spring</option>
+		<option value="Sophomore Fall">Sophomore Fall</option>
+		<option value="Sophomore Spring">Sophomore Spring</option>
+		<option value="Junior Fall">Junior Fall</option>
+		<option value="Junior Spring">Junior Spring</option>
+		<option value="Senior Fall">Senior Fall</option>
+		<option value="Senior Spring">Senior Spring</option>
+	</select>
+	<label for="hours">Hours:</label>
+	<input type="number" id="hours" name="hours" min="1" max="5">
+	<input type="submit" value="Submit">
+</form>
 </main>
 </body>
 </html>
