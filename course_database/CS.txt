@@ -1,0 +1,16 @@
+Programming,CS1321,None,False
+Programming,CS1323,None,False
+Programming,CS1324,None,False
+Programming Structures and Abstractions,CS2334,CS1321/CS1323/CS1324 MATH1523>=,False
+Discrete Structures,CS2813,CS2334,False
+Data Structures,CS2413,CS2334 MATH1914/MATH1823,False
+Computer Organization,CS2614,CS2334,False
+Principles of Programming Languages,CS3323,ENGR2002,False
+Software Engineering,CS3203,CS2413 CS2813/MATH2513,False
+Intro to Operating Systems,CS3113,CS2614,False
+Theory of Computation,CS3823,None,False
+Algorithm Analysis,CS4413,None,False
+Computer Security,CS4173,CS3113,False
+Data Management Systems,CS4513,None,False
+Capstone Design Project,CS4273,CS3203,False
+Parallel Distributed and Network Programming,CS4473,CS3113,False
