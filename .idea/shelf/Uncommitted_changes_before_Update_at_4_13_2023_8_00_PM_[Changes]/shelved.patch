@@ -1,0 +1,65 @@
+Index: Course.py
+===================================================================
+diff --git a/Course.py b/Course.py
+deleted file mode 100644
+--- a/Course.py	(revision 6b874f33d29c4eafa1185368a559b66b22a048b5)
++++ /dev/null	(revision 6b874f33d29c4eafa1185368a559b66b22a048b5)
+@@ -1,57 +0,0 @@
+-# make a class that defines a course and its contents
+-class Course:
+-    # method one: constructor
+-    def __init__(self, name, code, list_pr, taken):
+-        self.name = name
+-        self.code = code
+-        self.list_pr = list_pr
+-        self.taken = taken
+-
+-    # method two: retrieve name
+-    def getName(self):
+-        return self.name
+-
+-    # method three: retrieve class code
+-    def getCode(self):
+-        return self.code
+-
+-    # method four: retrieve whether class has been taken or not
+-    def isTaken(self):
+-        return self.taken
+-
+-    # method five: retrieve hours the class is worth using course code
+-    def getHours(self):
+-        code = self.getCode()
+-        hour = int(code[-1])
+-        return hour
+-
+-    # method eight: get subject
+-    def getSubject(self):
+-        return self.code[:-4]
+-
+-    # method seven: print
+-    def print(self):
+-        print("Course Name: " + self.getName() + "\n"
+-              + "Subject: " + self.getSubject() + "\n"
+-              + "Course Code: " + self.getCode() + "\n"
+-              + "Course Hours: " + str(self.getHours()) + " Hour(s)" + "\n"
+-              + "Taken: " + str(self.isTaken()) + "\n")
+-
+-
+-
+-    def take(self):
+-        for course in self.list_pr:
+-            if not course.taken:
+-                return False
+-        return True
+-
+-class Reader:
+-    str = "Programming Structures and Abstractions,CS2334,CS1321/CS1323/CS1324 MATH1523+,False"
+-    listy = str.split(",")
+-    print(listy)
+-    prereq = listy[2].split(" ")
+-    for i, coursey in enumerate(prereq):
+-        prereq[i] =coursey.split("/")
+-    print(prereq)
+-    course = Course(listy[0], listy[1], prereq, listy[3])
+-    course.print()
+\ No newline at end of file
