@@ -1,0 +1,6 @@
+Calculus I,MATH1914,None,False
+Calculus II,MATH2924,MATH1914,False
+Calculus III,MATH2934,MATH2934,False
+Discrete Mathematics,MATH2513,CS2334 MATH2924/MATH2423,False
+Linear Algebra,MATH3333,MATH1914/MATH1823,False
+Applied Statistical Methods,MATH4753,MATH2924/MATH2423,False
