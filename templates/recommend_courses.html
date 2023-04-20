@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Courses</title>
+    <style>
+		body {
+			background-color: darkred;
+			color: white;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			height: 100vh;
+			margin: 0;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+		header {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100px;
+			width: 100%;
+			margin-bottom: 20px;
+		}
+		header img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		main {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: flex-start;
+			flex-grow: 1;
+			width: 100%;
+			max-width: 600px;
+		}
+		h1, h2, h3, h4, h5, h6 {
+			margin-top: 0;
+		}
+		p {
+			margin-top: 0;
+			margin-bottom: 1em;
+		}
+		table {
+			border-collapse: collapse;
+			margin-top: 20px;
+			width: 100%;
+			max-width: 600px;
+		}
+		th, td {
+			padding: 12px;
+			text-align: left;
+			border-bottom: 1px solid white;
+		}
+		th {
+			background-color: white;
+			color: darkred;
+			font-weight: bold;
+		}
+		button {
+			padding: 10px;
+			margin: 5px;
+			border: none;
+			border-radius: 5px;
+			background-color: white;
+			color: darkred;
+			font-size: 18px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+    <header>
+		<img src=""Logo.png alt="Logo">
+	</header>
+    <h1>Recommended Courses</h1>
+    <ul>
+        {% for course in courses %}
+        <li>{{ course }}</li>
+        {% endfor %}
+    </ul>
+    <button onclick="location.href='/schedule'">Go Back to Schedule</button>
+</body>
+</html>
