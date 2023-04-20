@@ -1,3 +1,110 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--	<title>View Classes</title>-->
+<!--	<style>-->
+<!--		body {-->
+<!--			background-color: darkred;-->
+<!--			color: white;-->
+<!--			display: flex;-->
+<!--			flex-direction: column;-->
+<!--			align-items: center;-->
+<!--			justify-content: flex-start;-->
+<!--			height: 100vh;-->
+<!--			margin: 0;-->
+<!--			font-family: Arial, sans-serif;-->
+<!--			font-size: 16px;-->
+<!--			line-height: 1.5;-->
+<!--		}-->
+<!--		header {-->
+<!--			display: flex;-->
+<!--			justify-content: center;-->
+<!--			align-items: center;-->
+<!--			height: 100px;-->
+<!--			width: 100%;-->
+<!--			margin-bottom: 20px;-->
+<!--		}-->
+<!--		header img {-->
+<!--			max-width: 100%;-->
+<!--			height: auto;-->
+<!--		}-->
+
+<!--		main {-->
+<!--			display: flex;-->
+<!--			flex-direction: column;-->
+<!--			align-items: center;-->
+<!--			justify-content: flex-start;-->
+<!--			flex-grow: 1;-->
+<!--			width: 100%;-->
+<!--			max-width: 600px;-->
+<!--		}-->
+<!--		h1, h2, h3, h4, h5, h6 {-->
+<!--			margin-top: 0;-->
+<!--		}-->
+<!--		p {-->
+<!--			margin-top: 0;-->
+<!--			margin-bottom: 1em;-->
+<!--		}-->
+<!--		table {-->
+<!--			border-collapse: collapse;-->
+<!--			margin-top: 20px;-->
+<!--			width: 100%;-->
+<!--			max-width: 600px;-->
+<!--		}-->
+<!--		th, td {-->
+<!--			padding: 12px;-->
+<!--			text-align: left;-->
+<!--			border-bottom: 1px solid white;-->
+<!--		}-->
+<!--		th {-->
+<!--			background-color: white;-->
+<!--			color: darkred;-->
+<!--			font-weight: bold;-->
+<!--		}-->
+<!--		button {-->
+<!--			padding: 10px;-->
+<!--			margin: 5px;-->
+<!--			border: none;-->
+<!--			border-radius: 5px;-->
+<!--			background-color: white;-->
+<!--			color: darkred;-->
+<!--			font-size: 18px;-->
+<!--			font-weight: bold;-->
+<!--			cursor: pointer;-->
+<!--		}-->
+<!--	</style>-->
+<!--</head>-->
+<!--<body>-->
+<!--	<header>-->
+<!--		<img src=""Logo.png alt="Logo">-->
+<!--	</header>-->
+<!--	<main>-->
+<!--		<h1>View Classes</h1>-->
+<!--		<table>-->
+<!--			<thead>-->
+<!--				<tr>-->
+<!--					<th>Class Name</th>-->
+<!--					<th>Professor</th>-->
+<!--					<th>Semester</th>-->
+<!--					<th>Credit Hours</th>-->
+<!--				</tr>-->
+<!--			</thead>-->
+<!--			<tbody>-->
+<!--				{% for course in courses %}-->
+<!--				<tr>-->
+<!--					<td>{{ course.name }}</td>-->
+<!--					<td>{{ course.professor }}</td>-->
+<!--					<td>{{ course.semester }}</td>-->
+<!--					<td>{{ course.hours }}</td>-->
+<!--				</tr>-->
+<!--				{% endfor %}-->
+<!--			</tbody>-->
+<!--		</table>-->
+<!--		<button onclick="location.href='/enter_classes'">Enter New Classes</button>-->
+<!--		<button onclick="location.href='/schedule'">Go Back to Schedule</button>-->
+<!--	</main>-->
+<!--</body>-->
+<!--</html>-->
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,21 +190,31 @@
 		<table>
 			<thead>
 				<tr>
-					<th>Class Name</th>
-					<th>Professor</th>
-					<th>Semester</th>
-					<th>Credit Hours</th>
+					<th>Freshman Fall</th>
+					<th>Freshman Spring</th>
+					<th>Sophomore Fall</th>
+					<th>Sophomore Spring</th>
+					<th>Junior Fall</th>
+					<th>Junior Spring</th>
+					<th>Senior Fall</th>
+					<th>Senior Spring</th>
 				</tr>
 			</thead>
 			<tbody>
-				{% for course in courses %}
+                {% set semesters = ['Freshman Fall', 'Freshman Spring', 'Sophomore Fall', 'Sophomore Spring', 'Junior Fall', 'Junior Spring', 'Senior Fall', 'Senior Spring'] %}
 				<tr>
-					<td>{{ course.name }}</td>
-					<td>{{ course.professor }}</td>
-					<td>{{ course.semester }}</td>
-					<td>{{ course.hours }}</td>
+                    {% for semester in semesters %}
+                        <td>
+                            {% for course in courses %}
+                                {% if course.semester == semester %}
+                                    {{ course.name }}<br>
+                                    {{ course.professor }}<br>
+                                    {{ course.hours }} Credit Hours<br><br>
+                                {% endif %}
+                            {% endfor %}
+                        </td>
+                    {% endfor %}
 				</tr>
-				{% endfor %}
 			</tbody>
 		</table>
 		<button onclick="location.href='/enter_classes'">Enter New Classes</button>

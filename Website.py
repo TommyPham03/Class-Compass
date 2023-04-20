@@ -32,6 +32,7 @@ def create_app():
 
             if user and check_password_hash(user.password, password):
                 session["username"] = username
+                session["user_id"] = user.id
                 return redirect("/schedule")
             else:
                 return "Invalid username or password"
@@ -51,29 +52,84 @@ def create_app():
 
         return render_template("register.html")
 
-    @app.route("/logout")
+    @app.route("/logout", methods=["POST"])
     def logout():
-        session.pop("username", None)
+        session.clear()
         return redirect("/login")
 
     @app.route("/schedule")
     def schedule():
         return render_template("schedule.html")
-
     @app.route("/enter_classes", methods=["GET", "POST"])
     def enter_classes():
         if request.method == "POST":
-            classes = request.form.getlist("class")
-            for course in classes:
-                # create a new Course object and save it to the database
-                new_course = Course(name=course, user_id=session["user_id"])
-                db.session.add(new_course)
+            class_name = request.form["classname"]
+            professor = request.form["professor"]
+            semester = request.form["semester"]
+            hours = request.form["hours"]
+
+            if "user_id" not in session:
+                return "User ID not found in the session. Please log in again."
+
+            new_course = Course(name=class_name, professor=professor, semester=semester, hours=hours,
+                                user_id=session["user_id"])
+            db.session.add(new_course)
             db.session.commit()
             return redirect("/schedule")
         else:
             return render_template("enter_classes.html")
 
+    @app.route("/view_classes")
+    def view_classes():
+            if "username" in session:
+                user = User.query.filter_by(username=session["username"]).first()
+                courses = Course.query.filter_by(user_id=user.id).all()
+                return render_template("view_classes.html", courses=courses)
+            else:
+                return redirect("/login")
+
+    @app.route('/recommend_courses', methods=['GET'])
+    def recommend_courses_route():
+        user_id = session["user_id"]
+        completed_courses = Course.query.filter_by(user_id=user_id).all()
+        completed_course_codes = [course.name for course in completed_courses]
+
+        recommended_course_codes = recommend_courses(completed_course_codes)
+
+        return render_template('recommend_courses.html', courses=recommended_course_codes)
+
     return app
+
+def recommend_courses(completed_courses):
+    course_prerequisites = {
+        "CS2334": ["CS1321", "CS1323", "CS1324"],
+        "CS2813": ["CS2334"],
+        "CS2413": ["CS2334", "MATH1914", "MATH1823"],
+        "CS2614": ["CS2334"],
+        "CS3323": ["ENGR2002"],
+        "CS3203": ["CS2413", "CS2813", "MATH2513"],
+        "CS3113": ["CS2614"],
+        "CS3823": [],
+        "CS4413": [],
+        "CS4173": ["CS3113"],
+        "CS4513": [],
+        "CS4273": ["CS3203"],
+        "CS4473": ["CS3113"],
+    }
+
+    recommended_courses = []
+
+    for course, prerequisites in course_prerequisites.items():
+        can_take_course = True
+        for prerequisite in prerequisites:
+            if prerequisite not in completed_courses:
+                can_take_course = False
+                break
+        if can_take_course:
+            recommended_courses.append(course)
+
+    return recommended_courses
+
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -84,10 +140,16 @@ class User(db.Model):
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(50), nullable=False)
+    professor = db.Column(db.String(50), nullable=True)
+    semester = db.Column(db.String(50), nullable=True)
+    hours = db.Column(db.Integer, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
 
 if __name__ == "__main__":
     app = create_app()
+    # with app.app_context():
+    #     db.drop_all()
+    #     db.create_all()
     app.run(debug=True)
 
 

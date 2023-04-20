@@ -1,16 +1,17 @@
-Programming,CS1321,None,False
-Programming,CS1323,None,False
-Programming,CS1324,None,False
-Programming Structures and Abstractions,CS2334,CS1321/CS1323/CS1324 MATH1523>=,False
-Discrete Structures,CS2813,CS2334,False
-Data Structures,CS2413,CS2334 MATH1914/MATH1823,False
-Computer Organization,CS2614,CS2334,False
-Principles of Programming Languages,CS3323,ENGR2002,False
-Software Engineering,CS3203,CS2413 CS2813/MATH2513,False
-Intro to Operating Systems,CS3113,CS2614,False
-Theory of Computation,CS3823,None,False
-Algorithm Analysis,CS4413,None,False
-Computer Security,CS4173,CS3113,False
-Data Management Systems,CS4513,None,False
-Capstone Design Project,CS4273,CS3203,False
-Parallel Distributed and Network Programming,CS4473,CS3113,False
+"/" mean or like MATH1914/MATH2513 mean MATH1914 or MATH2513
+Programming,CS1321,None,
+Programming,CS1323,None,
+Programming,CS1324,None,
+Programming Structures and Abstractions,CS2334,CS1321/CS1323/CS1324 MATH1523>=
+Discrete Structures,Course Number:CS2813,Prereqs:CS2334,False
+Data Structures, Course Number: CS2413,Prereqs: CS2334 and MATH1914/MATH1823
+Computer Organization,Course Number: CS2614,Prereqs:CS2334
+Principles of Programming Languages, Course Number: CS3323,Prereqs: ENGR2002
+Software Engineering,Course Number: CS3203,Prereqs: CS2413 and CS2813/MATH2513
+Intro to Operating Systems,Course Number: CS3113,Prereqs:CS2614
+Theory of Computation,Course Number: CS3823,Prereqs:None
+Algorithm Analysis,Course Number: CS4413,Prereqs: None
+Computer Security,Course Number: CS4173,Prereqs: CS3113
+Data Management Systems,Course Number: CS4513, Prereqs: None
+Capstone Design Project,Course Number: CS4273,Prereqs: CS3203
+Parallel Distributed and Network Programming,Course Number: CS4473,Prereqs: CS3113
