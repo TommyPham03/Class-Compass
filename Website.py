@@ -1,6 +1,8 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, session, url_for
+from Course import create, match_course, Course, Subject
+
 db = SQLAlchemy()
 
 def create_app():
@@ -113,6 +115,16 @@ def create_app():
         return render_template('hours.html')
 
     return app
+
+    # Uses from the Course.py imports
+    dr_lst = ["course_database/CS.txt", "course_database/MATH.txt"]
+    subjects = create(dr_lst)
+    CS_CRS = match_course("CS2334", subjects)
+
+    @app.route("/thang")
+    def index():
+        course = CS_CRS
+        return render_template("thang.html", course = CS_CRS)
 
 def recommend_courses(completed_courses, semester, max_hours=None):
     completed_course_codes = {course.name for course in completed_courses}

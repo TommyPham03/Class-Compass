@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="change things back to before">
+    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="made the schedule page">
+      <change afterPath="$PROJECT_DIR$/templates/thang.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Website.py" beforeDir="false" afterPath="$PROJECT_DIR$/Website.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/instance/users.db" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -238,14 +240,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681601176204</updated>
     </task>
-    <task id="LOCAL-00013" summary="change things back to before">
-      <created>1682047046435</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1682047046435</updated>
-    </task>
-    <option name="localTasksCounter" value="14" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,8 +267,7 @@
     <MESSAGE value="realign login text to the left" />
     <MESSAGE value="made the schedule page" />
     <MESSAGE value="made the enter classes page again" />
-    <MESSAGE value="change things back to before" />
-    <option name="LAST_COMMIT_MESSAGE" value="change things back to before" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the enter classes page again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
