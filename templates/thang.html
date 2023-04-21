@@ -4,7 +4,7 @@
     <title>{{ course.get_name() }}</title>
   </head>
   <body>
-    <form action="{{ url_for('thang') }}" method="POST">
+    <form action="/thang" method="POST">
       <h1>{{ course.get_name() }}</h1>
       <p>Subject: {{ course.get_subject() }}</p>
       <p>Course CCode: {{ course.get_code() }}</p>
