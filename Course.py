@@ -1,4 +1,7 @@
 # make a class that defines a course and its contents
+global subjects
+
+
 class Course:
     # method one: constructor
     def __init__(self, name, code, lst_pr, taken):
@@ -29,25 +32,81 @@ class Course:
     def get_subject(self):
         return self.code[:-4]
 
+    def get_pr_format(self):
+        lst = []
+        for idx, val in enumerate(self.lst_pr):
+            for subidx, subval in enumerate(val):
+                if subval == "None":
+                    return subval
+                lst.append(subval)
+                if subidx < len(val) - 1:
+                    lst.append("OR")
+            if idx < len(self.lst_pr) - 1:
+                lst.append("AND")
+        return lst
+
     # method seven: print
     def print(self):
         print("Course Name: " + self.get_name() + "\n"
               + "Subject: " + self.get_subject() + "\n"
               + "Course Code: " + self.get_code() + "\n"
               + "Course Hours: " + str(self.get_hours()) + " Hour(s)" + "\n"
-              + "Taken: " + str(self.is_taken()) + "\n")
+              + "Taken: " + str(self.is_taken()) + "\n"
+              + "Prerequisites: " + str(self.get_pr_format()) + "\n")
 
     # TODO: create a method that represents a user attempting to take a course
-    def take(self):  # use for a button for HTML
-        return all(any(sub_lst[i].is_taken() for sub_lst in self.lst_pr) for i in range(len(self.lst_pr[0])))
+    def take(self, SJTS):  # use for a button for HTML
+        # lst_prq = []
+        boo = False
+        true_ct = 0
+        for idx, ANDS in enumerate(self.lst_pr):
+            or_val = False
+            for sub_idx, OR in enumerate(ANDS):
+                if OR == "None":
+                    boo = True
+                    pass
+                else:
+                    if or_val:
+                        break
+                    '''watch it'''
+                    course = match_course(OR, SJTS)
+                    # below if statement is crucial since we have many Subject objects
+                    if course is None:
+                        break
+                    # print(course.get_name())
+                    print(course.get_name() + ": " + str(course.is_taken()) + "\n")
+                    if course.is_taken() == True:
+                        true_ct = true_ct + 1
+                        # print("counts: " + str(true_ct))
+                        break
+                if sub_idx == len(ANDS) and or_val == False:
+                    print("TAKE " + str(self.get_name()) + ": FAIL" + "\n")
+                    boo = False
+            if true_ct >= len(self.lst_pr):
+                boo = True
 
-    def select(self):  # use for a button in HTML
-        if self.take():
-            print("You may take " + self.getName())
+        # print(boo)
+        return boo
+
+    def select(self, SJTS):  # use for a button in HTML
+        print("YOU ARE ATTEMPTING TO TAKE: " + self.get_name() + "\n")
+        if self.take(SJTS):
+            return print("You MAY take " + self.get_name() + "\n")
+        return print("You CANNOT take " + self.get_name() + "\n")
 
     # When a user selects a class to mean that they have taken it, this method will be invoked
     def report_taken(self):
         self.taken = True
+        print(self.name + " has been changed to TAKEN" + "\n")
+
+    def report_not_taken(self):
+        self.taken = False
+        print(self.name + " has been changed to NOT TAKEN" + "\n")
+
+    '''def pr_match(self, course):
+        sujeto = nm[:-4]
+        for idx in SJTS:
+            idx.match_course(sujeto)'''
 
 
 class Subject:
@@ -61,15 +120,11 @@ class Subject:
     def add_course(self, course):
         self.c_list.append(course)
 
-    def match_course(self, course):
-        for i in self.c_list:
-            if i.get_code() == course.get_code():
-                return i
     def get_list(self):
         return self.c_list
 
 
-class Reader:  # TODO: Create a library cataloging of groups of courses based on their course Strings
+class Reader:
     def __init__(self, txt):
         self.txt = txt
 
@@ -93,7 +148,57 @@ class Reader:  # TODO: Create a library cataloging of groups of courses based on
         # TODO: Create a method that takes the strings of prerequisite courses and finds its course object equivalent
 
 
-read = Reader('course_database/CS.txt')
-subject = read.open()
-for i in subject.get_list():
-    i.print()
+
+def match_course(course, sjts):
+    for sjt in sjts:
+        for crs in sjt.get_list():
+            if crs.get_code() == course:
+                return crs
+        # raise ValueError("course '" + course + "' cannot be matched in the subject '" + self.get_nm() + "' :(.")
+
+def extract_substring(s):
+    start_index = s.index("/") + 1
+    end_index = s.index(".")
+    return s[start_index:end_index]
+def create(src_lst):
+    SJTS = []
+    for dr in src_lst:
+        SJT = Subject(extract_substring(dr))
+        read = Reader(dr)
+        subject = read.open()
+        for crs in subject.get_list():
+            SJT.add_course(crs)
+        SJTS.append(SJT)
+    return SJTS
+def trial ():
+    CSey = match_course("CS1321", subjects)
+    CSey.report_taken()
+    CSey.print()
+    CSey.select(subjects)
+
+    mathey = match_course("MATH1523", subjects)
+    mathey.report_taken()
+    mathey.print()
+    mathey.select(subjects)
+
+    CS_dos = match_course("CS2334", subjects)
+    CS_dos.print()
+    CS_dos.select(subjects)
+
+    CS_tres = match_course("CS2413", subjects)
+    CS_tres.print()
+    CS_tres.select(subjects)
+
+    CS_dos.report_taken()
+    CS_tres.select(subjects)
+
+    MATH_dos = match_course("MATH1914", subjects)
+    MATH_dos.report_taken()
+    CS_tres.select(subjects)
+
+
+'''Add TXT file directories here'''
+dr_lst = ["course_database/CS.txt","course_database/MATH.txt"]
+
+subjects = create(dr_lst)
+trial()

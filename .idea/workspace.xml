@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="remodel the enter_classes html and instance to have checkboxes">
+    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="made the schedule page">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_33_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_33_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_59_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_59_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_8_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_8_00_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_15_2023_6_37_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_15_2023_6_37_PM__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Website.py" beforeDir="false" afterPath="$PROJECT_DIR$/Website.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/instance/users.db" beforeDir="false" afterPath="$PROJECT_DIR$/instance/users.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/enter_classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/enter_classes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/view_classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/view_classes.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -241,42 +241,7 @@
       <option name="project" value="LOCAL" />
       <updated>1681601176204</updated>
     </task>
-    <task id="LOCAL-00013" summary="made the recommend coures page">
-      <created>1682027454509</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1682027454509</updated>
-    </task>
-    <task id="LOCAL-00014" summary="made the recommend coures page">
-      <created>1682027469329</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1682027469329</updated>
-    </task>
-    <task id="LOCAL-00015" summary="made the recommend coures page">
-      <created>1682027492066</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1682027492066</updated>
-    </task>
-    <task id="LOCAL-00016" summary="fix the recommend coures page">
-      <created>1682035168608</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1682035168608</updated>
-    </task>
-    <task id="LOCAL-00017" summary="remodel the enter_classes html and instance to have checkboxes">
-      <created>1682042232872</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1682042232872</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -303,10 +268,7 @@
     <MESSAGE value="realign login text to the left" />
     <MESSAGE value="made the schedule page" />
     <MESSAGE value="made the enter classes page again" />
-    <MESSAGE value="made the recommend coures page" />
-    <MESSAGE value="fix the recommend coures page" />
-    <MESSAGE value="remodel the enter_classes html and instance to have checkboxes" />
-    <option name="LAST_COMMIT_MESSAGE" value="remodel the enter_classes html and instance to have checkboxes" />
+    <option name="LAST_COMMIT_MESSAGE" value="made the enter classes page again" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
