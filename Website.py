@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request, redirect, session
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
-
+from flask import Flask, render_template, request, redirect, session, url_for
 db = SQLAlchemy()
 
 def create_app():
@@ -60,19 +59,18 @@ def create_app():
     @app.route("/schedule")
     def schedule():
         return render_template("schedule.html")
+
     @app.route("/enter_classes", methods=["GET", "POST"])
     def enter_classes():
         if request.method == "POST":
-            class_name = request.form["classname"]
-            professor = request.form["professor"]
-            semester = request.form["semester"]
-            hours = request.form["hours"]
+            selected_courses = request.form.getlist('courses')
+            selected_courses_str = ','.join(
+                selected_courses)  # Convert the list of selected courses into a comma-separated string
 
             if "user_id" not in session:
                 return "User ID not found in the session. Please log in again."
 
-            new_course = Course(name=class_name, professor=professor, semester=semester, hours=hours,
-                                user_id=session["user_id"])
+            new_course = Course(selected_courses=selected_courses_str, user_id=session["user_id"])
             db.session.add(new_course)
             db.session.commit()
             return redirect("/schedule")
@@ -88,47 +86,76 @@ def create_app():
             else:
                 return redirect("/login")
 
-    @app.route('/recommend_courses', methods=['GET'])
-    def recommend_courses_route():
+    @app.route('/recommend_courses/<int:max_hours>')
+    def recommend_courses_route(max_hours):
+        if "username" not in session:
+            return redirect("/login")
+
         user_id = session["user_id"]
         completed_courses = Course.query.filter_by(user_id=user_id).all()
         completed_course_codes = [course.name for course in completed_courses]
 
-        recommended_course_codes = recommend_courses(completed_course_codes)
+        target_semester = "FALL"  # You can change this to any other semester as needed.
 
-        return render_template('recommend_courses.html', courses=recommended_course_codes)
+        recommended_courses = recommend_courses(completed_courses, target_semester, max_hours)
+        return render_template('recommend_courses.html', courses=recommended_courses)
+
+    @app.route('/hours', methods=['GET', 'POST'])
+    def hours_route():
+        if "username" not in session:
+            return redirect("/login")
+
+        if request.method == "POST":
+            hours = int(request.form["hours"])
+            return redirect(url_for('recommend_courses_route', max_hours=hours))
+
+        return render_template('hours.html')
 
     return app
 
-def recommend_courses(completed_courses):
-    course_prerequisites = {
-        "CS2334": ["CS1321", "CS1323", "CS1324"],
-        "CS2813": ["CS2334"],
-        "CS2413": ["CS2334", "MATH1914", "MATH1823"],
-        "CS2614": ["CS2334"],
-        "CS3323": ["ENGR2002"],
-        "CS3203": ["CS2413", "CS2813", "MATH2513"],
-        "CS3113": ["CS2614"],
-        "CS3823": [],
-        "CS4413": [],
-        "CS4173": ["CS3113"],
-        "CS4513": [],
-        "CS4273": ["CS3203"],
-        "CS4473": ["CS3113"],
+def recommend_courses(completed_courses, semester, max_hours=None):
+    completed_course_codes = {course.name for course in completed_courses}
+
+    courses = {
+        "FALL": {
+            "freshman": ["MATH1914", "CS1321", "CS1323", "CS1324", "ENGL1113", "ENGR1411", "UCOL1523", "Open Electives"],
+            "sophomore": ["MATH2934", "CS2813/MATH2513", "CS2413", "ENGR2002", "Approved Elective Social Science"],
+            "junior": ["CS3203", "CS3113", "CS3823", "3000+ level MATH", "Approved Electives Artistic Forms"],
+            "senior": ["CS4000+ Elective", "CS4413", "CS4173", "CS4513", "CS4000+ Elective OR MATH4073/MATH4673/MATH4313"]
+        },
+        "SPRING": {
+            "freshman": ["MATH2924", "CS2334", "ENGL/EXPO1213", "NATURAL SCIENCE with Lab"],
+            "sophomore": ["OPEN ELECTIVES", "CS2614", "CS3323", "Natural Science (Core i)/PHYS2514"],
+            "junior": ["CS4000+ Elective", "MATH3333", "MATH4753/ISE3293/MATH4743", "PSC1113", "Approved Elective Western Culture"],
+            "senior": ["CS4000+ Elective", "CS4473", "CS4273", "HIST1483/HIST1493", "Approved Elective World Culture"]
+        },
+        "SUMMER": {},
+        "JANUARY INTERSESSION": {},
+        "MAY INTERSESSION": {},
     }
 
-    recommended_courses = []
+    semester_courses = courses.get(semester.upper())
 
-    for course, prerequisites in course_prerequisites.items():
-        can_take_course = True
-        for prerequisite in prerequisites:
-            if prerequisite not in completed_courses:
-                can_take_course = False
-                break
-        if can_take_course:
+    available_courses = []
+    for year_courses in semester_courses.values():
+        for course in year_courses:
+            if course not in completed_course_codes:
+                course_hours = int(course.split()[-1]) if course.split()[
+                    -1].isdigit() else 3  # assuming default 3 hours
+                available_courses.append((course, course_hours))
+
+    available_courses.sort(key=lambda x: x[1], reverse=True)
+
+    recommended_courses = []
+    total_hours = 0
+    for course, hours in available_courses:
+        if total_hours + hours <= max_hours:
             recommended_courses.append(course)
+            total_hours += hours
 
     return recommended_courses
+
+
 
 
 class User(db.Model):
@@ -137,13 +164,19 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     courses = db.relationship("Course", backref="user", lazy=True)
 
+# class Course(db.Model):
+#     id = db.Column(db.Integer, primary_key=True)
+#     name = db.Column(db.String(50), nullable=False)
+#     professor = db.Column(db.String(50), nullable=True)
+#     semester = db.Column(db.String(50), nullable=True)
+#     hours = db.Column(db.Integer, nullable=True)
+#     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(50), nullable=False)
-    professor = db.Column(db.String(50), nullable=True)
-    semester = db.Column(db.String(50), nullable=True)
-    hours = db.Column(db.Integer, nullable=True)
+    selected_courses = db.Column(db.String(500), nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
+
 
 if __name__ == "__main__":
     app = create_app()

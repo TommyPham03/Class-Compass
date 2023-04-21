@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Recommended Courses</title>
+    <title>Enter Hours</title>
     <style>
 		body {
 			background-color: darkred;
@@ -45,21 +45,31 @@
 			margin-top: 0;
 			margin-bottom: 1em;
 		}
-		table {
-			border-collapse: collapse;
+		form {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
 			margin-top: 20px;
 			width: 100%;
 			max-width: 600px;
 		}
-		th, td {
-			padding: 12px;
-			text-align: left;
-			border-bottom: 1px solid white;
+		label {
+			margin-bottom: 10px;
+			font-weight: bold;
+			font-size: 18px;
 		}
-		th {
+		input {
+			padding: 10px;
+			margin-bottom: 20px;
+			border: none;
+			border-radius: 5px;
 			background-color: white;
 			color: darkred;
+			font-size: 18px;
 			font-weight: bold;
+			width: 100%;
+			max-width: 600px;
 		}
 		button {
 			padding: 10px;
@@ -76,20 +86,14 @@
 </head>
 <body>
     <header>
-        <img src=""Logo.png alt="Logo">
-    </header>
-    <h1>Recommended Courses</h1>
-    <ul>
-        {% for course in courses %}
-        <li>{{ course }}</li>
-        {% endfor %}
-    </ul>
-   <form action="{{ url_for('hours_route') }}" method="POST">
-        <label for="hours">Enter hours:</label>
+		<img src=""Logo.png alt="Logo">
+	</header>
+    <h1>Enter Hours</h1>
+    <form action="{{ url_for('hours_route') }}" method="POST">
+        <label for="hours">Enter the number of hours you want to take next semester:</label>
         <input type="text" id="hours" name="hours">
         <button type="submit">Submit</button>
     </form>
     <button onclick="location.href='/schedule'">Go Back to Schedule</button>
 </body>
 </html>
-
