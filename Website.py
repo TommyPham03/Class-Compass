@@ -59,18 +59,19 @@ def create_app():
     @app.route("/schedule")
     def schedule():
         return render_template("schedule.html")
-
     @app.route("/enter_classes", methods=["GET", "POST"])
     def enter_classes():
         if request.method == "POST":
-            selected_courses = request.form.getlist('courses')
-            selected_courses_str = ','.join(
-                selected_courses)  # Convert the list of selected courses into a comma-separated string
+            class_name = request.form["classname"]
+            professor = request.form["professor"]
+            semester = request.form["semester"]
+            hours = request.form["hours"]
 
             if "user_id" not in session:
                 return "User ID not found in the session. Please log in again."
 
-            new_course = Course(selected_courses=selected_courses_str, user_id=session["user_id"])
+            new_course = Course(name=class_name, professor=professor, semester=semester, hours=hours,
+                                user_id=session["user_id"])
             db.session.add(new_course)
             db.session.commit()
             return redirect("/schedule")
@@ -164,19 +165,13 @@ class User(db.Model):
     password = db.Column(db.String(255), nullable=False)
     courses = db.relationship("Course", backref="user", lazy=True)
 
-# class Course(db.Model):
-#     id = db.Column(db.Integer, primary_key=True)
-#     name = db.Column(db.String(50), nullable=False)
-#     professor = db.Column(db.String(50), nullable=True)
-#     semester = db.Column(db.String(50), nullable=True)
-#     hours = db.Column(db.Integer, nullable=True)
-#     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-
 class Course(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    selected_courses = db.Column(db.String(500), nullable=True)
+    name = db.Column(db.String(50), nullable=False)
+    professor = db.Column(db.String(50), nullable=True)
+    semester = db.Column(db.String(50), nullable=True)
+    hours = db.Column(db.Integer, nullable=True)
     user_id = db.Column(db.Integer, db.ForeignKey("user.id"), nullable=False)
-
 
 if __name__ == "__main__":
     app = create_app()
@@ -184,6 +179,5 @@ if __name__ == "__main__":
     #     db.drop_all()
     #     db.create_all()
     app.run(debug=True)
-
 
 
