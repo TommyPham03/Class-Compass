@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, session, url_for
-from Course import create, match_course, Course, Subject
+#from Course import create, match_course, Course, Subject
 
 db = SQLAlchemy()
 
@@ -98,7 +98,7 @@ def create_app():
         completed_courses = Course.query.filter_by(user_id=user_id).all()
         completed_course_codes = [course.name for course in completed_courses]
 
-        target_semester = "FALL"  # You can change this to any other semester as needed.
+        target_semester = "SPRING"  # You can change this to any other semester as needed.
 
         recommended_courses = recommend_courses(completed_courses, target_semester, max_hours)
         return render_template('recommend_courses.html', courses=recommended_courses)
@@ -113,13 +113,6 @@ def create_app():
             return redirect(url_for('recommend_courses_route', max_hours=hours))
 
         return render_template('hours.html')
-
-    # Uses from the Course.py imports
-
-    dr_lst = ["course_database/CS.txt", "course_database/MATH.txt"]
-    subjects = create(dr_lst)
-    CS_CRS = match_course("CS2334", subjects)
-
 
     return app
 
@@ -187,7 +180,7 @@ if __name__ == "__main__":
     app = create_app()
     # with app.app_context():
     #     db.drop_all()
-    #     db.create_all()
+    #     db.create_all
     app.run(debug=True)
 
 

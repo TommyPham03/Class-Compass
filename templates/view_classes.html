@@ -200,9 +200,9 @@
 					<th>Senior Spring</th>
 				</tr>
 			</thead>
-			<tbody>
+	 <tbody>
                 {% set semesters = ['Freshman Fall', 'Freshman Spring', 'Sophomore Fall', 'Sophomore Spring', 'Junior Fall', 'Junior Spring', 'Senior Fall', 'Senior Spring'] %}
-				<tr>
+                <tr>
                     {% for semester in semesters %}
                         <td>
                             {% for course in courses %}
@@ -214,8 +214,8 @@
                             {% endfor %}
                         </td>
                     {% endfor %}
-				</tr>
-			</tbody>
+                </tr>
+            </tbody>
 		</table>
 		<button onclick="location.href='/enter_classes'">Enter New Classes</button>
 		<button onclick="location.href='/schedule'">Go Back to Schedule</button>
