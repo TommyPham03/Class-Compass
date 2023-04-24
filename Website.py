@@ -1,6 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask import Flask, render_template, request, redirect, session, url_for
+from jinja2 import Environment, FileSystemLoader
+
+import Majors
+
 #from Course import create, match_course, Course, Subject
 
 db = SQLAlchemy()
@@ -114,6 +118,17 @@ def create_app():
 
         return render_template('hours.html')
 
+    @app.route("/makeschedule")
+    def makeschedule():
+        # create a Jinja2 environment with the path to the template file
+        env = Environment(loader=FileSystemLoader('.'))
+        template = env.get_template('templates/template.html')
+
+        # render the template with the course data
+        html = template.render(semesters=Majors.ComputerScienceSemesters)
+        with open('templates/courses.html', 'w') as f:
+            f.write(html)
+        return render_template("courses.html")
     return app
 
 

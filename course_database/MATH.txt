@@ -7,3 +7,4 @@ Introduction to Ordinary Differential Equations,MATH3113,MATH2423/MATH2924,False
 Linear Algebra,MATH3333,MATH1914/MATH1823,False
 Introduction to Mathematical Statistics,MATH4743,MATH4733,False
 Applied Statistical Methods,MATH4753,MATH2924/MATH2423,False
+MATH 3000+ Elective,MATH3003,None,False

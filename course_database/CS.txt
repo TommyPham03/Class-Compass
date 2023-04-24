@@ -14,3 +14,4 @@ Computer Security,CS4173,CS3113,False
 Data Management Systems,CS4513,None,False
 Capstone Design Project,CS4273,CS3203,False
 Parallel Distributed and Network Programming,CS4473,CS3113,False
+CS 4000+ Elective,CS4003,None,False

@@ -4,8 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Visually updated all html pages with the new logo">
+    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Added &quot;make scheduel&quot; functionality and html document">
+      <change afterPath="$PROJECT_DIR$/Majors.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_database/blank.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/style.CSS" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/courses.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Class-Compass.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Class-Compass.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Course.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Website.py" beforeDir="false" afterPath="$PROJECT_DIR$/Website.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_database/CS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course_database/CS.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/course_database/MATH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course_database/MATH.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/enter_classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/enter_classes.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,10 +170,10 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Python.main" />
       <item itemvalue="Python.Course" />
       <item itemvalue="Python.Playground" />
       <item itemvalue="Python.Website" />
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.thang" />
     </list>
     <recent_temporary>
@@ -280,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682296059784</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Added &quot;make scheduel&quot; functionality and html document">
+      <created>1682307501819</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1682307501819</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -309,7 +328,8 @@
     <MESSAGE value="made the enter classes page again" />
     <MESSAGE value="change things back to before" />
     <MESSAGE value="Visually updated all html pages with the new logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Visually updated all html pages with the new logo" />
+    <MESSAGE value="Added &quot;make scheduel&quot; functionality and html document" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added &quot;make scheduel&quot; functionality and html document" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
