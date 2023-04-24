@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Rebased visual_update to main">
+    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Added a function to alphabetize the course list on enter_classes.html">
+      <change afterPath="$PROJECT_DIR$/course_database/ENGR.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/course_database/HIST.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/enter_classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/enter_classes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +54,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ganda\PycharmProjects\Class-Compass\course_database" />
       <recent name="C:\Users\jerou\PycharmProjects\Class-Compass\templates" />
       <recent name="C:\Users\jerou\PycharmProjects\Class-Compass" />
     </key>
@@ -291,7 +295,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682296775636</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added a function to alphabetize the course list on enter_classes.html">
+      <created>1682298942748</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1682298942748</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -333,7 +344,8 @@
     <MESSAGE value="change things back to before" />
     <MESSAGE value="Visually updated all html pages with the new logo" />
     <MESSAGE value="Rebased visual_update to main" />
-    <option name="LAST_COMMIT_MESSAGE" value="Rebased visual_update to main" />
+    <MESSAGE value="Added a function to alphabetize the course list on enter_classes.html" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added a function to alphabetize the course list on enter_classes.html" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

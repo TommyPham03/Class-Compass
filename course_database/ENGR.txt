@@ -1,0 +1,3 @@
+Freshman Year Experience,ENGR1411,None,False
+Engineering Experience,ENGR3511,None,False
+Professional Development,ENGR2002,ENGL1213/EXPO1213 ENGR1411/ENGR3511,None,False
