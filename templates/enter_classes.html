@@ -132,6 +132,11 @@
       }
     }
   }
+  const options = Array.from(classnameSelect.options);
+  options.sort((a, b) => a.text.localeCompare(b.text));
+  for (const option of options) {
+    classnameSelect.add(option);
+  }
 }
 
   document.getElementById('semester');
