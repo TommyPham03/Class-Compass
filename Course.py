@@ -18,6 +18,9 @@ class Course:
     def get_code(self):
         return self.code
 
+    def get_int(self):
+        return self.code[-4:] # returns the last 4 chars
+
     # method four: retrieve whether class has been taken or not
     def is_taken(self):
         return self.taken
@@ -30,7 +33,7 @@ class Course:
 
     # method eight: get subject
     def get_subject(self):
-        return self.code[:-4]
+        return self.code[:-4] # returns all but the last 4 chars
 
     def get_pr_format(self):
         lst = []
@@ -123,6 +126,13 @@ class Subject:
     def get_list(self):
         return self.c_list
 
+    def search(self, nmbr):
+        for crs in self.get_list():
+            if str(crs.get_int()) == str(nmbr):
+                return crs
+
+        print("ERROR: " + str(nmbr) + " not yet existent in data provided")
+
 
 class Reader:
     def __init__(self, txt):
@@ -201,4 +211,13 @@ def trial ():
 dr_lst = ["course_database/CS.txt","course_database/MATH.txt"]
 
 subjects = create(dr_lst)
-trial()
+'''
+MATH_dos = match_course("MATH1914", subjects)
+print("INT: " + MATH_dos.get_int())
+MATH_dos_copy = subjects[1].search("1914")
+MATH_dos_copy.print()
+print("INT: " + MATH_dos_copy.get_int())
+'''
+
+
+

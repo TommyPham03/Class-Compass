@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>Freshman Fall</h1>
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: white;
+}
+::selection{
+  color: #fff;
+  background: darkred;
+}
+.wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 125px;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.06);
+  border: 4px solid black;
+}
+.wrapper header{
+  font-size: 15px;
+  font-weight: 500;
+  align-items: center;
+  padding: 16px 21px;
+  border-bottom: 1px solid white;
+  color: white;
+  background: darkred;
+  text-align: center;
+}
+.wrapper header.active{
+  cursor: move;
+  user-select: none;
+}
+.wrapper .content{
+  display: flex;
+  padding: 0px 25px 0px 10px; /* Top Left Dist Bottom Right Dist*/
+  flex-direction: column;
+  justify-content: center;
+}
+.content .icon{
+  height: 95px;
+  width: 95px;
+  border-radius: 50%;
+  border: 5px solid #6F36FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .icon i{
+  color: #6F36FF;
+  font-size: 60px;
+}
+.content .title{
+  margin: 10px 0;
+  font-size: 12px;
+  align-items: center;
+  font-weight: 500;
+  color: black;
+  background: white;
+  text-align: center;
+}
+.content p{
+  font-size: 8px;
+  text-align: center;
+  color: white;
+}
+
+  
+  
+    #MATH1914 {
+      top: 20%;
+      left: 10%;
+    }
+  
+    #none1001 {
+      top: 42%;
+      left: 10%;
+    }
+  
+    #CS1324 {
+      top: 64%;
+      left: 10%;
+    }
+  
+    #none1001 {
+      top: 86%;
+      left: 10%;
+    }
+  
+    #none1001 {
+      top: 108%;
+      left: 10%;
+    }
+  
+
+  
+  
+    #MATH2924 {
+      top: 20%;
+      left: 20%;
+    }
+  
+    #CS2334 {
+      top: 42%;
+      left: 20%;
+    }
+  
+    #none1001 {
+      top: 64%;
+      left: 20%;
+    }
+  
+    #none1001 {
+      top: 86%;
+      left: 20%;
+    }
+  
+
+  
+  
+    #MATH2934 {
+      top: 20%;
+      left: 30%;
+    }
+  
+    #none1001 {
+      top: 42%;
+      left: 30%;
+    }
+  
+    #CS2813 {
+      top: 64%;
+      left: 30%;
+    }
+  
+    #CS2413 {
+      top: 86%;
+      left: 30%;
+    }
+  
+    #none1001 {
+      top: 108%;
+      left: 30%;
+    }
+  
+
+  
+  
+    #none1001 {
+      top: 20%;
+      left: 40%;
+    }
+  
+    #CS2614 {
+      top: 42%;
+      left: 40%;
+    }
+  
+    #none1001 {
+      top: 64%;
+      left: 40%;
+    }
+  
+    #CS3323 {
+      top: 86%;
+      left: 40%;
+    }
+  
+
+  
+  
+    #CS3203 {
+      top: 20%;
+      left: 50%;
+    }
+  
+    #CS3113 {
+      top: 42%;
+      left: 50%;
+    }
+  
+    #CS3823 {
+      top: 64%;
+      left: 50%;
+    }
+  
+    #MATH3003 {
+      top: 86%;
+      left: 50%;
+    }
+  
+    #none1001 {
+      top: 108%;
+      left: 50%;
+    }
+  
+
+  
+  
+    #MATH3333 {
+      top: 20%;
+      left: 60%;
+    }
+  
+    #CS4003 {
+      top: 42%;
+      left: 60%;
+    }
+  
+    #MATH4753 {
+      top: 64%;
+      left: 60%;
+    }
+  
+    #none1001 {
+      top: 86%;
+      left: 60%;
+    }
+  
+    #none1001 {
+      top: 108%;
+      left: 60%;
+    }
+  
+
+  
+  
+    #CS4003 {
+      top: 20%;
+      left: 70%;
+    }
+  
+    #CS4413 {
+      top: 42%;
+      left: 70%;
+    }
+  
+    #CS4173 {
+      top: 64%;
+      left: 70%;
+    }
+  
+    #CS4513 {
+      top: 86%;
+      left: 70%;
+    }
+  
+    #CS4003 {
+      top: 108%;
+      left: 70%;
+    }
+  
+
+  
+  
+    #CS4273 {
+      top: 20%;
+      left: 80%;
+    }
+  
+    #CS4473 {
+      top: 42%;
+      left: 80%;
+    }
+  
+    #CS4003 {
+      top: 64%;
+      left: 80%;
+    }
+  
+    #none1001 {
+      top: 86%;
+      left: 80%;
+    }
+  
+    #none1001 {
+      top: 108%;
+      left: 80%;
+    }
+  
+
+
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Div Element in JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    
+        
+        <div class="wrapper" id=MATH1914>
+            <header>Calculus I</header>
+            <div class="content">
+                <div class="title">MATH1914 Hours: 4</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS1324>
+            <header>Programming</header>
+            <div class="content">
+                <div class="title">CS1324 Hours: 4</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+    
+        
+        <div class="wrapper" id=MATH2924>
+            <header>Calculus II</header>
+            <div class="content">
+                <div class="title">MATH2924 Hours: 4</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS2334>
+            <header>Programming Structures and Abstractions</header>
+            <div class="content">
+                <div class="title">CS2334 Hours: 4</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+    
+        
+        <div class="wrapper" id=MATH2934>
+            <header>Calculus III</header>
+            <div class="content">
+                <div class="title">MATH2934 Hours: 4</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS2813>
+            <header>Discrete Structures</header>
+            <div class="content">
+                <div class="title">CS2813 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS2413>
+            <header>Data Structures</header>
+            <div class="content">
+                <div class="title">CS2413 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+    
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS2614>
+            <header>Computer Organization</header>
+            <div class="content">
+                <div class="title">CS2614 Hours: 4</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS3323>
+            <header>Principles of Programming Languages</header>
+            <div class="content">
+                <div class="title">CS3323 Hours: 3</div>
+            </div>
+        </div>
+        
+    
+        
+        <div class="wrapper" id=CS3203>
+            <header>Software Engineering</header>
+            <div class="content">
+                <div class="title">CS3203 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS3113>
+            <header>Intro to Operating Systems</header>
+            <div class="content">
+                <div class="title">CS3113 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS3823>
+            <header>Theory of Computation</header>
+            <div class="content">
+                <div class="title">CS3823 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=MATH3003>
+            <header>MATH 3000+ Elective</header>
+            <div class="content">
+                <div class="title">MATH3003 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+    
+        
+        <div class="wrapper" id=MATH3333>
+            <header>Linear Algebra</header>
+            <div class="content">
+                <div class="title">MATH3333 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS4003>
+            <header>CS 4000+ Elective</header>
+            <div class="content">
+                <div class="title">CS4003 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=MATH4753>
+            <header>Applied Statistical Methods</header>
+            <div class="content">
+                <div class="title">MATH4753 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+    
+        
+        <div class="wrapper" id=CS4003>
+            <header>CS 4000+ Elective</header>
+            <div class="content">
+                <div class="title">CS4003 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS4413>
+            <header>Algorithim Analysis</header>
+            <div class="content">
+                <div class="title">CS4413 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS4173>
+            <header>Computer Security</header>
+            <div class="content">
+                <div class="title">CS4173 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS4513>
+            <header>Data Management Systems</header>
+            <div class="content">
+                <div class="title">CS4513 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS4003>
+            <header>CS 4000+ Elective</header>
+            <div class="content">
+                <div class="title">CS4003 Hours: 3</div>
+            </div>
+        </div>
+        
+    
+        
+        <div class="wrapper" id=CS4273>
+            <header>Capstone Design Project</header>
+            <div class="content">
+                <div class="title">CS4273 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS4473>
+            <header>Parallel Distributed and Network Programming</header>
+            <div class="content">
+                <div class="title">CS4473 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=CS4003>
+            <header>CS 4000+ Elective</header>
+            <div class="content">
+                <div class="title">CS4003 Hours: 3</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+        <div class="wrapper" id=none1001>
+            <header>none</header>
+            <div class="content">
+                <div class="title">none1001 Hours: 1</div>
+            </div>
+        </div>
+        
+    
+
+    <script>
+const wrappers = document.querySelectorAll(".wrapper");
+
+wrappers.forEach(wrapper => {
+  const header = wrapper.querySelector("header");
+  let isDragging = false;
+
+  function onDrag({movementX, movementY}) {
+    let getStyle = window.getComputedStyle(wrapper);
+    let leftVal = parseInt(getStyle.left);
+    let topVal = parseInt(getStyle.top);
+    wrapper.style.left = `${leftVal + movementX}px`;
+    wrapper.style.top = `${topVal + movementY}px`;
+  }
+
+  header.addEventListener("mousedown", () => {
+    isDragging = true;
+    header.classList.add("active");
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    if (isDragging) {
+      onDrag({
+        movementX: event.movementX,
+        movementY: event.movementY
+      });
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    header.classList.remove("active");
+  });
+});
+
+
+    </script>
+
+</body>
+</html>

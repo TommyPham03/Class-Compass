@@ -1,0 +1,1260 @@
+Index: templates/enter_classes.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n\t<title>Enter Classes</title>\r\n\t<style>\r\n\t\tbody {\r\n\t\t\tbackground-color: white;\r\n\t\t\tcolor: black;\r\n\t\t\tdisplay: flex;\r\n\t\t\tflex-direction: column;\r\n\t\t\talign-items: center;\r\n\t\t\tjustify-content: flex-start;\r\n\t\t\theight: 100vh;\r\n\t\t\tmargin: 0;\r\n\t\t\tfont-family: Arial, sans-serif;\r\n\t\t\tfont-size: 16px;\r\n\t\t\tline-height: 1.5;\r\n\t\t}\r\n\t\theader {\r\n\t\t\tdisplay: flex;\r\n\t\t\tjustify-content: center;\r\n\t\t\talign-items: center;\r\n\t\t\theight: 100px;\r\n\t\t\twidth: 100%;\r\n\t\t\tmargin-bottom: 20px;\r\n\t\t}\r\n\t\theader img {\r\n\t\t\tmax-width: 40%;\r\n\t\t\theight: auto;\r\n\t\t}\r\n\r\n\t\tmain {\r\n\t\t\tdisplay: flex;\r\n\t\t\tflex-direction: column;\r\n\t\t\talign-items: center;\r\n\t\t\tjustify-content: flex-start;\r\n\t\t\tflex-grow: 1;\r\n\t\t\twidth: 100%;\r\n\t\t\tmax-width: 600px;\r\n\t\t}\r\n\t\th1, h2, h3, h4, h5, h6 {\r\n\t\t\tmargin-top: 0;\r\n\t\t}\r\n\t\tp {\r\n\t\t\tmargin-top: 0;\r\n\t\t\tmargin-bottom: 1em;\r\n\t\t}\r\n\t\tform {\r\n\t\t\tdisplay: flex;\r\n\t\t\tflex-direction: column;\r\n\t\t\talign-items: center;\r\n\t\t\tjustify-content: center;\r\n\t\t\twidth: 100%;\r\n\t\t}\r\n\t\tlabel, input {\r\n\t\t\tdisplay: block;\r\n\t\t\tmargin-bottom: 10px;\r\n\t\t}\r\n\t\tinput[type=\"submit\"] {\r\n\t\t\tpadding: 10px;\r\n\t\t\tmargin-top: 20px;\r\n\t\t\tborder: none;\r\n\t\t\tborder-radius: 5px;\r\n\t\t\tbackground-color: darkred;\r\n\t\t\tcolor: white;\r\n\t\t\tfont-size: 18px;\r\n\t\t\tfont-weight: bold;\r\n\t\t\tcursor: pointer;\r\n\t\t}\r\n\t</style>\r\n</head>\r\n<body>\r\n\t\t<header>\r\n\t\t<img src=\"data:application/octet-stream;base64,iVBORw0KGgoAAAANSUhEUgAAAmwAAAFcCAYAAAB1B+IVAAAACXBIWXMAAAsTAAALEwEAmpwYAAAIiGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgOS4wLWMwMDAgNzkuMTcxYzI3ZiwgMjAyMi8wOC8xNi0xODowMjo0MyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1sbnM6cGhvdG9zaG9wPSJodHRwOi8vbnMuYWRvYmUuY29tL3Bob3Rvc2hvcC8xLjAvIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyNC4xIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjMtMDQtMjBUMTU6NDE6MDYtMDU6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjMtMDQtMjBUMTU6NDU6NDctMDU6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIzLTA0LTIwVDE1OjQ1OjQ3LTA1OjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo3ZjMzNTI5Yy1kOTc1LWJiNDctOGYzYy02NjYyMGI2ZjFiZWMiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDpjNTZhMmVhYi02MDUzLTlkNGMtYjQ1NC1hOTE2MDg5MjIzN2EiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDoyZDczMWE2Yi0wMDI4LTg2NDUtODBhNi1hNWU0NmY2MzcxYjYiIHBob3Rvc2hvcDpDb2xvck1vZGU9IjMiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjJkNzMxYTZiLTAwMjgtODY0NS04MGE2LWE1ZTQ2ZjYzNzFiNiIgc3RFdnQ6d2hlbj0iMjAyMy0wNC0yMFQxNTo0MTowNi0wNTowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDI0LjEgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDpiMTMyMTUxYi04N2IyLWE2NDktOGY0My1iZjRlMDNhYTFiNzMiIHN0RXZ0OndoZW49IjIwMjMtMDQtMjBUMTU6NDU6NDctMDU6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyNC4xIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0iY29udmVydGVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJmcm9tIGFwcGxpY2F0aW9uL3ZuZC5hZG9iZS5waG90b3Nob3AgdG8gaW1hZ2UvcG5nIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJkZXJpdmVkIiBzdEV2dDpwYXJhbWV0ZXJzPSJjb252ZXJ0ZWQgZnJvbSBhcHBsaWNhdGlvbi92bmQuYWRvYmUucGhvdG9zaG9wIHRvIGltYWdlL3BuZyIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6N2YzMzUyOWMtZDk3NS1i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\"\r\n\t\talt=\"logo\">\r\n\t</header>\r\n\t<main>\r\n\t<h1>Enter Classes</h1>\r\n\r\n<form method=\"POST\" action=\"{{ url_for('enter_classes') }}\">\r\n\t<label for=\"classname\">Class Name:</label>\r\n\t<select id=\"classname\" name=\"classname\">\r\n\t</select>\r\n\t<label for=\"professor\">Professor:</label>\r\n\t<input type=\"text\" id=\"professor\" name=\"professor\">\r\n\t<label for=\"semester\">Semester:</label>\r\n\t<select id=\"semester\" name=\"semester\">\r\n\t  <option value=\"Freshman FALL\">Freshman Fall</option>\r\n\t  <option value=\"Freshman SPRING\">Freshman Spring</option>\r\n\t  <option value=\"Sophomore FALL\">Sophomore Fall</option>\r\n\t  <option value=\"Sophomore SPRING\">Sophomore Spring</option>\r\n\t  <option value=\"Junior FALL\">Junior Fall</option>\r\n\t  <option value=\"Junior SPRING\">Junior Spring</option>\r\n\t  <option value=\"Senior FALL\">Senior Fall</option>\r\n\t  <option value=\"Senior SPRING\">Senior Spring</option>\r\n\t</select>\r\n\t<label for=\"hours\">Hours:</label>\r\n\t<input type=\"number\" id=\"hours\" name=\"hours\" min=\"1\" max=\"5\">\r\n\t<input type=\"submit\" value=\"Submit\">\r\n</form>\r\n</main>\r\n\r\n<script>\r\n  const courses = {\r\n    \"FALL\": {\r\n      \"Freshman\": [\"MATH1914\", \"CS1321\", \"CS1323\", \"CS1324\", \"ENGL1113\", \"ENGR1411\", \"UCOL1523\", \"Open Electives\"],\r\n      \"Sophomore\": [\"MATH2934\", \"CS2813/MATH2513\", \"CS2413\", \"ENGR2002\", \"Approved Elective Social Science\"],\r\n      \"Junior\": [\"CS3203\", \"CS3113\", \"CS3823\", \"3000+ level MATH\", \"Approved Electives Artistic Forms\"],\r\n      \"Senior\": [\"CS4000+ Elective\", \"CS4413\", \"CS4173\", \"CS4513\", \"CS4000+ Elective OR MATH4073/MATH4673/MATH4313\"]\r\n    },\r\n    \"SPRING\": {\r\n      \"Freshman\": [\"MATH2924\", \"CS2334\", \"ENGL/EXPO1213\", \"NATURAL SCIENCE with Lab\"],\r\n      \"Sophomore\": [\"OPEN ELECTIVES\", \"CS2614\", \"CS3323\", \"Natural Science (Core i)/PHYS2514\"],\r\n      \"Junior\": [\"CS4000+ Elective\", \"MATH3333\", \"MATH4753/ISE3293/MATH4743\", \"PSC1113\", \"Approved Elective Western Culture\"],\r\n      \"Senior\": [\"CS4000+ Elective\", \"CS4473\", \"CS4273\", \"HIST1483/HIST1493\", \"Approved Elective World Culture\"]\r\n    }\r\n  };\r\n\r\n  function populateAllCourses() {\r\n  const classnameSelect = document.getElementById('classname');\r\n  classnameSelect.innerHTML = '';\r\n\r\n  for (const season in courses) {\r\n    for (const year in courses[season]) {\r\n      const availableCourses = courses[season][year];\r\n\r\n      for (const course of availableCourses) {\r\n        const option = document.createElement('option');\r\n        option.value = course;\r\n        option.text = course;\r\n        classnameSelect.add(option);\r\n      }\r\n    }\r\n  }\r\n}\r\n\r\n  document.getElementById('semester');\r\n  document.addEventListener('DOMContentLoaded', populateAllCourses);\r\n</script>\r\n\r\n</body>\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/enter_classes.html b/templates/enter_classes.html
+--- a/templates/enter_classes.html	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/templates/enter_classes.html	(date 1682297604537)
+@@ -139,4 +139,4 @@
+ </script>
+ 
+ </body>
+-</html>
++</html>
+\ No newline at end of file
+Index: Website.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from flask_sqlalchemy import SQLAlchemy\r\nfrom werkzeug.security import generate_password_hash, check_password_hash\r\nfrom flask import Flask, render_template, request, redirect, session, url_for\r\n#from Course import create, match_course, Course, Subject\r\n\r\ndb = SQLAlchemy()\r\n\r\ndef create_app():\r\n    app = Flask(__name__)\r\n    app.config[\"SECRET_KEY\"] = \"mysecretkey\"\r\n    app.config[\"SQLALCHEMY_DATABASE_URI\"] = \"sqlite:///users.db\"\r\n    app.config[\"SQLALCHEMY_TRACK_MODIFICATIONS\"] = False\r\n\r\n    db.init_app(app)\r\n\r\n    with app.app_context():\r\n        db.create_all()\r\n\r\n    @app.route(\"/\")\r\n    def index():\r\n        if \"username\" in session:\r\n            #return f\"Welcome, {session['username']}!<br><a href='/logout'>Logout</a>\"\r\n            return redirect(\"/schedule\")\r\n        else:\r\n            return redirect(\"/login\")\r\n\r\n    @app.route(\"/login\", methods=[\"GET\", \"POST\"])\r\n    def login():\r\n        if request.method == \"POST\":\r\n            username = request.form[\"username\"]\r\n            password = request.form[\"password\"]\r\n            user = User.query.filter_by(username=username).first()\r\n\r\n            if user and check_password_hash(user.password, password):\r\n                session[\"username\"] = username\r\n                session[\"user_id\"] = user.id\r\n                return redirect(\"/schedule\")\r\n            else:\r\n                return \"Invalid username or password\"\r\n\r\n        return render_template(\"login.html\")\r\n\r\n    @app.route(\"/register\", methods=[\"GET\", \"POST\"])\r\n    def register():\r\n        if request.method == \"POST\":\r\n            username = request.form[\"username\"]\r\n            password = request.form[\"password\"]\r\n            hashed_password = generate_password_hash(password, method=\"sha256\")\r\n            new_user = User(username=username, password=hashed_password)\r\n            db.session.add(new_user)\r\n            db.session.commit()\r\n            return redirect(\"/login\")\r\n\r\n        return render_template(\"register.html\")\r\n\r\n    @app.route(\"/logout\", methods=[\"POST\"])\r\n    def logout():\r\n        session.clear()\r\n        return redirect(\"/login\")\r\n\r\n    @app.route(\"/schedule\")\r\n    def schedule():\r\n        return render_template(\"schedule.html\")\r\n    @app.route(\"/enter_classes\", methods=[\"GET\", \"POST\"])\r\n    def enter_classes():\r\n        if request.method == \"POST\":\r\n            class_name = request.form[\"classname\"]\r\n            professor = request.form[\"professor\"]\r\n            semester = request.form[\"semester\"]\r\n            hours = request.form[\"hours\"]\r\n\r\n            if \"user_id\" not in session:\r\n                return \"User ID not found in the session. Please log in again.\"\r\n\r\n            new_course = Course(name=class_name, professor=professor, semester=semester, hours=hours,\r\n                                user_id=session[\"user_id\"])\r\n            db.session.add(new_course)\r\n            db.session.commit()\r\n            return redirect(\"/schedule\")\r\n        else:\r\n            return render_template(\"enter_classes.html\")\r\n\r\n    @app.route(\"/view_classes\")\r\n    def view_classes():\r\n            if \"username\" in session:\r\n                user = User.query.filter_by(username=session[\"username\"]).first()\r\n                courses = Course.query.filter_by(user_id=user.id).all()\r\n                return render_template(\"view_classes.html\", courses=courses)\r\n            else:\r\n                return redirect(\"/login\")\r\n\r\n    @app.route('/recommend_courses/<int:max_hours>')\r\n    def recommend_courses_route(max_hours):\r\n        if \"username\" not in session:\r\n            return redirect(\"/login\")\r\n\r\n        user_id = session[\"user_id\"]\r\n        completed_courses = Course.query.filter_by(user_id=user_id).all()\r\n        completed_course_codes = [course.name for course in completed_courses]\r\n\r\n        target_semester = \"SPRING\"  # You can change this to any other semester as needed.\r\n\r\n        recommended_courses = recommend_courses(completed_courses, target_semester, max_hours)\r\n        return render_template('recommend_courses.html', courses=recommended_courses)\r\n\r\n    @app.route('/hours', methods=['GET', 'POST'])\r\n    def hours_route():\r\n        if \"username\" not in session:\r\n            return redirect(\"/login\")\r\n\r\n        if request.method == \"POST\":\r\n            hours = int(request.form[\"hours\"])\r\n            return redirect(url_for('recommend_courses_route', max_hours=hours))\r\n\r\n        return render_template('hours.html')\r\n\r\n    return app\r\n\r\n\r\ndef recommend_courses(completed_courses, semester, max_hours=None):\r\n    completed_course_codes = {course.name for course in completed_courses}\r\n\r\n    courses = {\r\n        \"FALL\": {\r\n            \"freshman\": [\"MATH1914\", \"CS1321\", \"CS1323\", \"CS1324\", \"ENGL1113\", \"ENGR1411\", \"UCOL1523\", \"Open Electives\"],\r\n            \"sophomore\": [\"MATH2934\", \"CS2813/MATH2513\", \"CS2413\", \"ENGR2002\", \"Approved Elective Social Science\"],\r\n            \"junior\": [\"CS3203\", \"CS3113\", \"CS3823\", \"3000+ level MATH\", \"Approved Electives Artistic Forms\"],\r\n            \"senior\": [\"CS4000+ Elective\", \"CS4413\", \"CS4173\", \"CS4513\", \"CS4000+ Elective OR MATH4073/MATH4673/MATH4313\"]\r\n        },\r\n        \"SPRING\": {\r\n            \"freshman\": [\"MATH2924\", \"CS2334\", \"ENGL/EXPO1213\", \"NATURAL SCIENCE with Lab\"],\r\n            \"sophomore\": [\"OPEN ELECTIVES\", \"CS2614\", \"CS3323\", \"Natural Science (Core i)/PHYS2514\"],\r\n            \"junior\": [\"CS4000+ Elective\", \"MATH3333\", \"MATH4753/ISE3293/MATH4743\", \"PSC1113\", \"Approved Elective Western Culture\"],\r\n            \"senior\": [\"CS4000+ Elective\", \"CS4473\", \"CS4273\", \"HIST1483/HIST1493\", \"Approved Elective World Culture\"]\r\n        },\r\n        \"SUMMER\": {},\r\n        \"JANUARY INTERSESSION\": {},\r\n        \"MAY INTERSESSION\": {},\r\n    }\r\n\r\n    semester_courses = courses.get(semester.upper())\r\n\r\n    available_courses = []\r\n    for year_courses in semester_courses.values():\r\n        for course in year_courses:\r\n            if course not in completed_course_codes:\r\n                course_hours = int(course.split()[-1]) if course.split()[\r\n                    -1].isdigit() else 3  # assuming default 3 hours\r\n                available_courses.append((course, course_hours))\r\n\r\n    available_courses.sort(key=lambda x: x[1], reverse=True)\r\n\r\n    recommended_courses = []\r\n    total_hours = 0\r\n    for course, hours in available_courses:\r\n        if total_hours + hours <= max_hours:\r\n            recommended_courses.append(course)\r\n            total_hours += hours\r\n\r\n    return recommended_courses\r\n\r\n\r\n\r\n\r\nclass User(db.Model):\r\n    id = db.Column(db.Integer, primary_key=True)\r\n    username = db.Column(db.String(50), nullable=False, unique=True)\r\n    password = db.Column(db.String(255), nullable=False)\r\n    courses = db.relationship(\"Course\", backref=\"user\", lazy=True)\r\n\r\nclass Course(db.Model):\r\n    id = db.Column(db.Integer, primary_key=True)\r\n    name = db.Column(db.String(50), nullable=False)\r\n    professor = db.Column(db.String(50), nullable=True)\r\n    semester = db.Column(db.String(50), nullable=True)\r\n    hours = db.Column(db.Integer, nullable=True)\r\n    user_id = db.Column(db.Integer, db.ForeignKey(\"user.id\"), nullable=False)\r\n\r\nif __name__ == \"__main__\":\r\n    app = create_app()\r\n    # with app.app_context():\r\n    #     db.drop_all()\r\n    #     db.create_all\r\n    app.run(debug=True)\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Website.py b/Website.py
+--- a/Website.py	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/Website.py	(date 1682301558016)
+@@ -1,6 +1,10 @@
+ from flask_sqlalchemy import SQLAlchemy
+ from werkzeug.security import generate_password_hash, check_password_hash
+ from flask import Flask, render_template, request, redirect, session, url_for
++from jinja2 import Environment, FileSystemLoader
++
++import Majors
++
+ #from Course import create, match_course, Course, Subject
+ 
+ db = SQLAlchemy()
+@@ -114,6 +118,17 @@
+ 
+         return render_template('hours.html')
+ 
++    @app.route("/makeschedule")
++    def makeschedule():
++        # create a Jinja2 environment with the path to the template file
++        env = Environment(loader=FileSystemLoader('.'))
++        template = env.get_template('templates/template.html')
++
++        # render the template with the course data
++        html = template.render(semesters=Majors.ComputerScienceSemesters)
++        with open('templates/courses.html', 'w') as f:
++            f.write(html)
++        return render_template("courses.html")
+     return app
+ 
+ 
+Index: course_database/CS.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Programming,CS1321,None,False\r\nProgramming,CS1323,None,False\r\nProgramming,CS1324,None,False\r\nProgramming Structures and Abstractions,CS2334,CS1321/CS1323/CS1324 MATH1523>=,False\r\nDiscrete Structures,CS2813,CS2334,False\r\nData Structures,CS2413,CS2334 MATH1914/MATH1823,False\r\nComputer Organization,CS2614,CS2334,False\r\nPrinciples of Programming Languages,CS3323,ENGR2002,False\r\nSoftware Engineering,CS3203,CS2413 CS2813/MATH2513,False\r\nIntro to Operating Systems,CS3113,CS2614,False\r\nTheory of Computation,CS3823,None,False\r\nAlgorithim Analysis,CS4413,None,False\r\nComputer Security,CS4173,CS3113,False\r\nData Management Systems,CS4513,None,False\r\nCapstone Design Project,CS4273,CS3203,False\r\nParallel Distributed and Network Programming,CS4473,CS3113,False
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course_database/CS.txt b/course_database/CS.txt
+--- a/course_database/CS.txt	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/course_database/CS.txt	(date 1682300232598)
+@@ -13,4 +13,5 @@
+ Computer Security,CS4173,CS3113,False
+ Data Management Systems,CS4513,None,False
+ Capstone Design Project,CS4273,CS3203,False
+-Parallel Distributed and Network Programming,CS4473,CS3113,False
+\ No newline at end of file
++Parallel Distributed and Network Programming,CS4473,CS3113,False
++CS 4000+ Elective,CS4003,None,False
+\ No newline at end of file
+Index: Course.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># make a class that defines a course and its contents\r\nglobal subjects\r\n\r\n\r\nclass Course:\r\n    # method one: constructor\r\n    def __init__(self, name, code, lst_pr, taken):\r\n        self.name = name\r\n        self.code = code\r\n        self.lst_pr = lst_pr\r\n        self.taken = taken\r\n\r\n    # method two: retrieve name\r\n    def get_name(self):\r\n        return self.name\r\n\r\n    # method three: retrieve class code\r\n    def get_code(self):\r\n        return self.code\r\n\r\n    # method four: retrieve whether class has been taken or not\r\n    def is_taken(self):\r\n        return self.taken\r\n\r\n    # method five: retrieve hours the class is worth using course code\r\n    def get_hours(self):\r\n        code = self.get_code()\r\n        hour = int(code[-1])\r\n        return hour\r\n\r\n    # method eight: get subject\r\n    def get_subject(self):\r\n        return self.code[:-4]\r\n\r\n    def get_pr_format(self):\r\n        lst = []\r\n        for idx, val in enumerate(self.lst_pr):\r\n            for subidx, subval in enumerate(val):\r\n                if subval == \"None\":\r\n                    return subval\r\n                lst.append(subval)\r\n                if subidx < len(val) - 1:\r\n                    lst.append(\"OR\")\r\n            if idx < len(self.lst_pr) - 1:\r\n                lst.append(\"AND\")\r\n        return lst\r\n\r\n    # method seven: print\r\n    def print(self):\r\n        print(\"Course Name: \" + self.get_name() + \"\\n\"\r\n              + \"Subject: \" + self.get_subject() + \"\\n\"\r\n              + \"Course Code: \" + self.get_code() + \"\\n\"\r\n              + \"Course Hours: \" + str(self.get_hours()) + \" Hour(s)\" + \"\\n\"\r\n              + \"Taken: \" + str(self.is_taken()) + \"\\n\"\r\n              + \"Prerequisites: \" + str(self.get_pr_format()) + \"\\n\")\r\n\r\n    # TODO: create a method that represents a user attempting to take a course\r\n    def take(self, SJTS):  # use for a button for HTML\r\n        # lst_prq = []\r\n        boo = False\r\n        true_ct = 0\r\n        for idx, ANDS in enumerate(self.lst_pr):\r\n            or_val = False\r\n            for sub_idx, OR in enumerate(ANDS):\r\n                if OR == \"None\":\r\n                    boo = True\r\n                    pass\r\n                else:\r\n                    if or_val:\r\n                        break\r\n                    '''watch it'''\r\n                    course = match_course(OR, SJTS)\r\n                    # below if statement is crucial since we have many Subject objects\r\n                    if course is None:\r\n                        break\r\n                    # print(course.get_name())\r\n                    print(course.get_name() + \": \" + str(course.is_taken()) + \"\\n\")\r\n                    if course.is_taken() == True:\r\n                        true_ct = true_ct + 1\r\n                        # print(\"counts: \" + str(true_ct))\r\n                        break\r\n                if sub_idx == len(ANDS) and or_val == False:\r\n                    print(\"TAKE \" + str(self.get_name()) + \": FAIL\" + \"\\n\")\r\n                    boo = False\r\n            if true_ct >= len(self.lst_pr):\r\n                boo = True\r\n\r\n        # print(boo)\r\n        return boo\r\n\r\n    def select(self, SJTS):  # use for a button in HTML\r\n        print(\"YOU ARE ATTEMPTING TO TAKE: \" + self.get_name() + \"\\n\")\r\n        if self.take(SJTS):\r\n            return print(\"You MAY take \" + self.get_name() + \"\\n\")\r\n        return print(\"You CANNOT take \" + self.get_name() + \"\\n\")\r\n\r\n    # When a user selects a class to mean that they have taken it, this method will be invoked\r\n    def report_taken(self):\r\n        self.taken = True\r\n        print(self.name + \" has been changed to TAKEN\" + \"\\n\")\r\n\r\n    def report_not_taken(self):\r\n        self.taken = False\r\n        print(self.name + \" has been changed to NOT TAKEN\" + \"\\n\")\r\n\r\n    '''def pr_match(self, course):\r\n        sujeto = nm[:-4]\r\n        for idx in SJTS:\r\n            idx.match_course(sujeto)'''\r\n\r\n\r\nclass Subject:\r\n    def __init__(self, nm):\r\n        self.nm = nm\r\n        self.c_list = []\r\n\r\n    def get_nm(self):\r\n        return self.nm\r\n\r\n    def add_course(self, course):\r\n        self.c_list.append(course)\r\n\r\n    def get_list(self):\r\n        return self.c_list\r\n\r\n\r\nclass Reader:\r\n    def __init__(self, txt):\r\n        self.txt = txt\r\n\r\n    def open(self):\r\n        file = open(self.txt, 'r')\r\n        courses = file.readlines()\r\n        subject = Subject(\"nm\")\r\n        for i in courses:\r\n            # print(i + \"here\")\r\n            listy = i.split(\",\")\r\n            prereq = listy[2].split(\" \")\r\n\r\n            for i, coursey in enumerate(prereq):\r\n                prereq[i] = coursey.split(\"/\")\r\n            # print(prereq)\r\n            course = Course(listy[0], listy[1], prereq, listy[3])\r\n            subject.add_course(course)\r\n        return subject\r\n\r\n        # course.take() this method has an error.\r\n        # TODO: Create a method that takes the strings of prerequisite courses and finds its course object equivalent\r\n\r\n\r\n\r\ndef match_course(course, sjts):\r\n    for sjt in sjts:\r\n        for crs in sjt.get_list():\r\n            if crs.get_code() == course:\r\n                return crs\r\n        # raise ValueError(\"course '\" + course + \"' cannot be matched in the subject '\" + self.get_nm() + \"' :(.\")\r\n\r\ndef extract_substring(s):\r\n    start_index = s.index(\"/\") + 1\r\n    end_index = s.index(\".\")\r\n    return s[start_index:end_index]\r\ndef create(src_lst):\r\n    SJTS = []\r\n    for dr in src_lst:\r\n        SJT = Subject(extract_substring(dr))\r\n        read = Reader(dr)\r\n        subject = read.open()\r\n        for crs in subject.get_list():\r\n            SJT.add_course(crs)\r\n        SJTS.append(SJT)\r\n    return SJTS\r\ndef trial ():\r\n    CSey = match_course(\"CS1321\", subjects)\r\n    CSey.report_taken()\r\n    CSey.print()\r\n    CSey.select(subjects)\r\n\r\n    mathey = match_course(\"MATH1523\", subjects)\r\n    mathey.report_taken()\r\n    mathey.print()\r\n    mathey.select(subjects)\r\n\r\n    CS_dos = match_course(\"CS2334\", subjects)\r\n    CS_dos.print()\r\n    CS_dos.select(subjects)\r\n\r\n    CS_tres = match_course(\"CS2413\", subjects)\r\n    CS_tres.print()\r\n    CS_tres.select(subjects)\r\n\r\n    CS_dos.report_taken()\r\n    CS_tres.select(subjects)\r\n\r\n    MATH_dos = match_course(\"MATH1914\", subjects)\r\n    MATH_dos.report_taken()\r\n    CS_tres.select(subjects)\r\n\r\n\r\n'''Add TXT file directories here'''\r\ndr_lst = [\"course_database/CS.txt\",\"course_database/MATH.txt\"]\r\n\r\nsubjects = create(dr_lst)\r\ntrial()
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Course.py b/Course.py
+--- a/Course.py	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/Course.py	(date 1682302684707)
+@@ -18,6 +18,9 @@
+     def get_code(self):
+         return self.code
+ 
++    def get_int(self):
++        return self.code[-4:] # returns the last 4 chars
++
+     # method four: retrieve whether class has been taken or not
+     def is_taken(self):
+         return self.taken
+@@ -30,7 +33,7 @@
+ 
+     # method eight: get subject
+     def get_subject(self):
+-        return self.code[:-4]
++        return self.code[:-4] # returns all but the last 4 chars
+ 
+     def get_pr_format(self):
+         lst = []
+@@ -123,6 +126,13 @@
+     def get_list(self):
+         return self.c_list
+ 
++    def search(self, nmbr):
++        for crs in self.get_list():
++            if str(crs.get_int()) == str(nmbr):
++                return crs
++
++        print("ERROR: " + str(nmbr) + " not yet existent in data provided")
++
+ 
+ class Reader:
+     def __init__(self, txt):
+@@ -201,4 +211,13 @@
+ dr_lst = ["course_database/CS.txt","course_database/MATH.txt"]
+ 
+ subjects = create(dr_lst)
+-trial()
+\ No newline at end of file
++'''
++MATH_dos = match_course("MATH1914", subjects)
++print("INT: " + MATH_dos.get_int())
++MATH_dos_copy = subjects[1].search("1914")
++MATH_dos_copy.print()
++print("INT: " + MATH_dos_copy.get_int())
++'''
++
++
++
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ProjectRootManager\" version=\"2\" project-jdk-name=\"Python 3.9 (Class-Compass)\" project-jdk-type=\"Python SDK\" />\r\n  <component name=\"PyCharmProfessionalAdvertiser\">\r\n    <option name=\"shown\" value=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/.idea/misc.xml	(date 1682297215124)
+@@ -1,6 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+-  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.9 (Class-Compass)" project-jdk-type="Python SDK" />
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.10 (Class-Compass)" project-jdk-type="Python SDK" />
+   <component name="PyCharmProfessionalAdvertiser">
+     <option name="shown" value="true" />
+   </component>
+Index: .idea/Class-Compass.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/venv\" />\r\n    </content>\r\n    <orderEntry type=\"inheritedJdk\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/Class-Compass.iml b/.idea/Class-Compass.iml
+--- a/.idea/Class-Compass.iml	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/.idea/Class-Compass.iml	(date 1682297214978)
+@@ -4,7 +4,7 @@
+     <content url="file://$MODULE_DIR$">
+       <excludeFolder url="file://$MODULE_DIR$/venv" />
+     </content>
+-    <orderEntry type="inheritedJdk" />
++    <orderEntry type="jdk" jdkName="Python 3.10 (Class-Compass)" jdkType="Python SDK" />
+     <orderEntry type="sourceFolder" forTests="false" />
+   </component>
+ </module>
+\ No newline at end of file
+Index: templates/template.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/template.html b/templates/template.html
+new file mode 100644
+--- /dev/null	(date 1682307114290)
++++ b/templates/template.html	(date 1682307114290)
+@@ -0,0 +1,147 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <h1>Freshman Fall</h1>
++    <style>
++        *{
++  margin: 0;
++  padding: 0;
++  box-sizing: border-box;
++  font-family: "Poppins", sans-serif;
++}
++body{
++  background: white;
++}
++::selection{
++  color: #fff;
++  background: darkred;
++}
++.wrapper{
++  position: absolute;
++  top: 50%;
++  left: 50%;
++  max-width: 125px;
++  width: 100%;
++  background: white;
++  border-radius: 10px;
++  transform: translate(-50%, -50%);
++  box-shadow: 10px 10px 15px rgba(0,0,0,0.06);
++  border: 4px solid black;
++}
++.wrapper header{
++  font-size: 15px;
++  font-weight: 500;
++  align-items: center;
++  padding: 16px 21px;
++  border-bottom: 1px solid white;
++  color: white;
++  background: darkred;
++  text-align: center;
++}
++.wrapper header.active{
++  cursor: move;
++  user-select: none;
++}
++.wrapper .content{
++  display: flex;
++  padding: 0px 25px 0px 10px; /* Top Left Dist Bottom Right Dist*/
++  flex-direction: column;
++  justify-content: center;
++}
++.content .icon{
++  height: 95px;
++  width: 95px;
++  border-radius: 50%;
++  border: 5px solid #6F36FF;
++  display: flex;
++  align-items: center;
++  justify-content: center;
++}
++.content .icon i{
++  color: #6F36FF;
++  font-size: 60px;
++}
++.content .title{
++  margin: 10px 0;
++  font-size: 12px;
++  align-items: center;
++  font-weight: 500;
++  color: black;
++  background: white;
++  text-align: center;
++}
++.content p{
++  font-size: 8px;
++  text-align: center;
++  color: white;
++}
++{% for semester in semesters %}
++  {% set semester_index = loop.index0 %}
++  {% for course in semester %}
++    #{{course.get_code()}} {
++      top: {{ (loop.index0) * 22 + 20}}%;
++      left: {{ semester_index * 10 + 10 }}%;
++    }
++  {% endfor %}
++{% endfor %}
++
++    </style>
++
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Draggable Div Element in JavaScript | CodingNepal</title>
++    <link rel="stylesheet" href="style.css">
++    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
++</head>
++<body>
++    {% for semester in semesters %}
++        {% for course in semester %}
++        <div class="wrapper" id={{course.get_code()}}>
++            <header>{{ course.get_name() }}</header>
++            <div class="content">
++                <div class="title">{{ course.get_code() }} Hours: {{ course.get_hours() }}</div>
++            </div>
++        </div>
++        {% endfor %}
++    {% endfor %}
++
++    <script>
++const wrappers = document.querySelectorAll(".wrapper");
++
++wrappers.forEach(wrapper => {
++  const header = wrapper.querySelector("header");
++  let isDragging = false;
++
++  function onDrag({movementX, movementY}) {
++    let getStyle = window.getComputedStyle(wrapper);
++    let leftVal = parseInt(getStyle.left);
++    let topVal = parseInt(getStyle.top);
++    wrapper.style.left = `${leftVal + movementX}px`;
++    wrapper.style.top = `${topVal + movementY}px`;
++  }
++
++  header.addEventListener("mousedown", () => {
++    isDragging = true;
++    header.classList.add("active");
++  });
++
++  document.addEventListener("mousemove", (event) => {
++    if (isDragging) {
++      onDrag({
++        movementX: event.movementX,
++        movementY: event.movementY
++      });
++    }
++  });
++
++  document.addEventListener("mouseup", () => {
++    isDragging = false;
++    header.classList.remove("active");
++  });
++});
++
++
++    </script>
++
++</body>
++</html>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"8b5d2e62-2836-4b7a-b889-e885dca287e7\" name=\"Changes\" comment=\"Visually updated all html pages with the new logo\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"HTML File\" />\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"main\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"MarkdownSettingsMigration\">\r\n    <option name=\"stateVersion\" value=\"1\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2NLVO9dybdyB7EOsgdV7tpa5r0U\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;C:/Users/ganda/OneDrive/Desktop/class_compass backup&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\jerou\\PycharmProjects\\Class-Compass\\templates\" />\r\n      <recent name=\"C:\\Users\\jerou\\PycharmProjects\\Class-Compass\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\" selected=\"Python.Website\">\r\n    <configuration name=\"Course\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Class-Compass\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/Course.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Playground\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Class-Compass\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/Playground.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"Website\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Class-Compass\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/Website.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"main\" type=\"PythonConfigurationType\" factoryName=\"Python\" nameIsGenerated=\"true\">\r\n      <module name=\"Class-Compass\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/main.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <configuration name=\"thang\" type=\"PythonConfigurationType\" factoryName=\"Python\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <module name=\"Class-Compass\" />\r\n      <option name=\"INTERPRETER_OPTIONS\" value=\"\" />\r\n      <option name=\"PARENT_ENVS\" value=\"true\" />\r\n      <envs>\r\n        <env name=\"PYTHONUNBUFFERED\" value=\"1\" />\r\n      </envs>\r\n      <option name=\"SDK_HOME\" value=\"\" />\r\n      <option name=\"WORKING_DIRECTORY\" value=\"$PROJECT_DIR$\" />\r\n      <option name=\"IS_MODULE_SDK\" value=\"true\" />\r\n      <option name=\"ADD_CONTENT_ROOTS\" value=\"true\" />\r\n      <option name=\"ADD_SOURCE_ROOTS\" value=\"true\" />\r\n      <option name=\"SCRIPT_NAME\" value=\"$PROJECT_DIR$/thang.py\" />\r\n      <option name=\"PARAMETERS\" value=\"\" />\r\n      <option name=\"SHOW_COMMAND_LINE\" value=\"false\" />\r\n      <option name=\"EMULATE_TERMINAL\" value=\"false\" />\r\n      <option name=\"MODULE_MODE\" value=\"false\" />\r\n      <option name=\"REDIRECT_INPUT\" value=\"false\" />\r\n      <option name=\"INPUT_FILE\" value=\"\" />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <list>\r\n      <item itemvalue=\"Python.main\" />\r\n      <item itemvalue=\"Python.Course\" />\r\n      <item itemvalue=\"Python.Playground\" />\r\n      <item itemvalue=\"Python.Website\" />\r\n      <item itemvalue=\"Python.thang\" />\r\n    </list>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"Python.Website\" />\r\n        <item itemvalue=\"Python.thang\" />\r\n        <item itemvalue=\"Python.Playground\" />\r\n        <item itemvalue=\"Python.Course\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"8b5d2e62-2836-4b7a-b889-e885dca287e7\" name=\"Changes\" comment=\"\" />\r\n      <created>1679443314987</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1679443314987</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Made a file for main\">\r\n      <created>1679443440881</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679443440881</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Made a website file\">\r\n      <created>1679443916882</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679443916882</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Made a file to define course\">\r\n      <created>1679625614996</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1679625614996</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Made a constructor method for Course\">\r\n      <created>1680224685676</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680224685676</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Made a method for retrieving the name of a Course\">\r\n      <created>1680224938652</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680224938652</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Made a method for retrieving the code listing of a Course\">\r\n      <created>1680225065721</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680225065721</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"Made a method for retrieving whether student has taken the Course\">\r\n      <created>1680225170441</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680225170441</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Create a print method that provides all relevant detail of a course\">\r\n      <created>1680645439713</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1680645439713</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"add in logo image\">\r\n      <created>1681422988562</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681422988562</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"realign login text to the left\">\r\n      <created>1681423246296</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681423246296</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"made the schedule page\">\r\n      <created>1681425031757</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681425031757</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"made the enter classes page again\">\r\n      <created>1681601176204</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1681601176204</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"change things back to before\">\r\n      <created>1682047046435</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1682047046435</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"Visually updated all html pages with the new logo\">\r\n      <created>1682296059784</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1682296059784</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"15\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"Made a file for main\" />\r\n    <MESSAGE value=\"Made a website file\" />\r\n    <MESSAGE value=\"Made a file to define course\" />\r\n    <MESSAGE value=\"Made a constructor method for Course\" />\r\n    <MESSAGE value=\"Made a method for retrieving the name of a Course\" />\r\n    <MESSAGE value=\"Made a method for retrieving the code listing of a Course\" />\r\n    <MESSAGE value=\"Made a method for retrieving whether student has taken the Course\" />\r\n    <MESSAGE value=\"Create a print method that provides all relevant detail of a course\" />\r\n    <MESSAGE value=\"add in logo image\" />\r\n    <MESSAGE value=\"realign login text to the left\" />\r\n    <MESSAGE value=\"made the schedule page\" />\r\n    <MESSAGE value=\"made the enter classes page again\" />\r\n    <MESSAGE value=\"change things back to before\" />\r\n    <MESSAGE value=\"Visually updated all html pages with the new logo\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"Visually updated all html pages with the new logo\" />\r\n  </component>\r\n  <component name=\"XDebuggerManager\">\r\n    <breakpoint-manager>\r\n      <breakpoints>\r\n        <line-breakpoint enabled=\"true\" suspend=\"THREAD\" type=\"python-line\">\r\n          <url>file://$PROJECT_DIR$/main.py</url>\r\n          <line>8</line>\r\n          <option name=\"timeStamp\" value=\"1\" />\r\n        </line-breakpoint>\r\n      </breakpoints>\r\n    </breakpoint-manager>\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/.idea/workspace.xml	(date 1682302687918)
+@@ -4,8 +4,24 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="Visually updated all html pages with the new logo">
++    <list default="true" id="8b5d2e62-2836-4b7a-b889-e885dca287e7" name="Changes" comment="made thang.py">
++      <change afterPath="$PROJECT_DIR$/Majors.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/course_database/blank.txt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/style.CSS" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/templates/courses.html" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/templates/template.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/Class-Compass.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Class-Compass.iml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_33_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_33_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_59_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_7_59_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_8_00_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_13_2023_8_00_PM__Changes_.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_20_2023_4_42_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_20_2023_4_42_PM__Changes_.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Course.py" beforeDir="false" afterPath="$PROJECT_DIR$/Course.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/Website.py" beforeDir="false" afterPath="$PROJECT_DIR$/Website.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/course_database/CS.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course_database/CS.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/course_database/MATH.txt" beforeDir="false" afterPath="$PROJECT_DIR$/course_database/MATH.txt" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/templates/enter_classes.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/enter_classes.html" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -21,11 +37,6 @@
+     </option>
+   </component>
+   <component name="Git.Settings">
+-    <option name="RECENT_BRANCH_BY_REPOSITORY">
+-      <map>
+-        <entry key="$PROJECT_DIR$" value="main" />
+-      </map>
+-    </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+   <component name="MarkdownSettingsMigration">
+@@ -36,16 +47,20 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent">{
+-  &quot;keyToString&quot;: {
+-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+-    &quot;last_opened_file_path&quot;: &quot;C:/Users/ganda/OneDrive/Desktop/class_compass backup&quot;,
+-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "DefaultHtmlFileTemplate": "HTML File",
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "last_opened_file_path": "C:/Users/Ewan/PycharmProjects/Class-Compass",
++    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+   }
+-}</component>
++}]]></component>
+   <component name="RecentsManager">
++    <key name="CopyFile.RECENT_KEYS">
++      <recent name="C:\Users\Ewan\PycharmProjects\Class-Compass" />
++      <recent name="C:\Users\Ewan\PycharmProjects\Class-Compass\templates" />
++    </key>
+     <key name="MoveFile.RECENT_KEYS">
+       <recent name="C:\Users\jerou\PycharmProjects\Class-Compass\templates" />
+       <recent name="C:\Users\jerou\PycharmProjects\Class-Compass" />
+@@ -167,9 +182,9 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="Python.Website" />
++        <item itemvalue="Python.Course" />
+         <item itemvalue="Python.thang" />
+         <item itemvalue="Python.Playground" />
+-        <item itemvalue="Python.Course" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -273,14 +288,21 @@
+       <option name="project" value="LOCAL" />
+       <updated>1682047046435</updated>
+     </task>
+-    <task id="LOCAL-00014" summary="Visually updated all html pages with the new logo">
+-      <created>1682296059784</created>
++    <task id="LOCAL-00014" summary="made thang.py">
++      <created>1682048749160</created>
+       <option name="number" value="00014" />
+       <option name="presentableId" value="LOCAL-00014" />
+       <option name="project" value="LOCAL" />
+-      <updated>1682296059784</updated>
++      <updated>1682048749160</updated>
++    </task>
++    <task id="LOCAL-00015" summary="made thang.py">
++      <created>1682048806725</created>
++      <option name="number" value="00015" />
++      <option name="presentableId" value="LOCAL-00015" />
++      <option name="project" value="LOCAL" />
++      <updated>1682048806725</updated>
+     </task>
+-    <option name="localTasksCounter" value="15" />
++    <option name="localTasksCounter" value="16" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -308,8 +330,8 @@
+     <MESSAGE value="made the schedule page" />
+     <MESSAGE value="made the enter classes page again" />
+     <MESSAGE value="change things back to before" />
+-    <MESSAGE value="Visually updated all html pages with the new logo" />
+-    <option name="LAST_COMMIT_MESSAGE" value="Visually updated all html pages with the new logo" />
++    <MESSAGE value="made thang.py" />
++    <option name="LAST_COMMIT_MESSAGE" value="made thang.py" />
+   </component>
+   <component name="XDebuggerManager">
+     <breakpoint-manager>
+Index: templates/courses.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/templates/courses.html b/templates/courses.html
+new file mode 100644
+--- /dev/null	(date 1682307115928)
++++ b/templates/courses.html	(date 1682307115928)
+@@ -0,0 +1,626 @@
++<!DOCTYPE html>
++<html lang="en">
++<head>
++    <h1>Freshman Fall</h1>
++    <style>
++        *{
++  margin: 0;
++  padding: 0;
++  box-sizing: border-box;
++  font-family: "Poppins", sans-serif;
++}
++body{
++  background: white;
++}
++::selection{
++  color: #fff;
++  background: darkred;
++}
++.wrapper{
++  position: absolute;
++  top: 50%;
++  left: 50%;
++  max-width: 125px;
++  width: 100%;
++  background: white;
++  border-radius: 10px;
++  transform: translate(-50%, -50%);
++  box-shadow: 10px 10px 15px rgba(0,0,0,0.06);
++  border: 4px solid black;
++}
++.wrapper header{
++  font-size: 15px;
++  font-weight: 500;
++  align-items: center;
++  padding: 16px 21px;
++  border-bottom: 1px solid white;
++  color: white;
++  background: darkred;
++  text-align: center;
++}
++.wrapper header.active{
++  cursor: move;
++  user-select: none;
++}
++.wrapper .content{
++  display: flex;
++  padding: 0px 25px 0px 10px; /* Top Left Dist Bottom Right Dist*/
++  flex-direction: column;
++  justify-content: center;
++}
++.content .icon{
++  height: 95px;
++  width: 95px;
++  border-radius: 50%;
++  border: 5px solid #6F36FF;
++  display: flex;
++  align-items: center;
++  justify-content: center;
++}
++.content .icon i{
++  color: #6F36FF;
++  font-size: 60px;
++}
++.content .title{
++  margin: 10px 0;
++  font-size: 12px;
++  align-items: center;
++  font-weight: 500;
++  color: black;
++  background: white;
++  text-align: center;
++}
++.content p{
++  font-size: 8px;
++  text-align: center;
++  color: white;
++}
++
++  
++  
++    #MATH1914 {
++      top: 20%;
++      left: 10%;
++    }
++  
++    #none1001 {
++      top: 42%;
++      left: 10%;
++    }
++  
++    #CS1324 {
++      top: 64%;
++      left: 10%;
++    }
++  
++    #none1001 {
++      top: 86%;
++      left: 10%;
++    }
++  
++    #none1001 {
++      top: 108%;
++      left: 10%;
++    }
++  
++
++  
++  
++    #MATH2924 {
++      top: 20%;
++      left: 20%;
++    }
++  
++    #CS2334 {
++      top: 42%;
++      left: 20%;
++    }
++  
++    #none1001 {
++      top: 64%;
++      left: 20%;
++    }
++  
++    #none1001 {
++      top: 86%;
++      left: 20%;
++    }
++  
++
++  
++  
++    #MATH2934 {
++      top: 20%;
++      left: 30%;
++    }
++  
++    #none1001 {
++      top: 42%;
++      left: 30%;
++    }
++  
++    #CS2813 {
++      top: 64%;
++      left: 30%;
++    }
++  
++    #CS2413 {
++      top: 86%;
++      left: 30%;
++    }
++  
++    #none1001 {
++      top: 108%;
++      left: 30%;
++    }
++  
++
++  
++  
++    #none1001 {
++      top: 20%;
++      left: 40%;
++    }
++  
++    #CS2614 {
++      top: 42%;
++      left: 40%;
++    }
++  
++    #none1001 {
++      top: 64%;
++      left: 40%;
++    }
++  
++    #CS3323 {
++      top: 86%;
++      left: 40%;
++    }
++  
++
++  
++  
++    #CS3203 {
++      top: 20%;
++      left: 50%;
++    }
++  
++    #CS3113 {
++      top: 42%;
++      left: 50%;
++    }
++  
++    #CS3823 {
++      top: 64%;
++      left: 50%;
++    }
++  
++    #MATH3003 {
++      top: 86%;
++      left: 50%;
++    }
++  
++    #none1001 {
++      top: 108%;
++      left: 50%;
++    }
++  
++
++  
++  
++    #MATH3333 {
++      top: 20%;
++      left: 60%;
++    }
++  
++    #CS4003 {
++      top: 42%;
++      left: 60%;
++    }
++  
++    #MATH4753 {
++      top: 64%;
++      left: 60%;
++    }
++  
++    #none1001 {
++      top: 86%;
++      left: 60%;
++    }
++  
++    #none1001 {
++      top: 108%;
++      left: 60%;
++    }
++  
++
++  
++  
++    #CS4003 {
++      top: 20%;
++      left: 70%;
++    }
++  
++    #CS4413 {
++      top: 42%;
++      left: 70%;
++    }
++  
++    #CS4173 {
++      top: 64%;
++      left: 70%;
++    }
++  
++    #CS4513 {
++      top: 86%;
++      left: 70%;
++    }
++  
++    #CS4003 {
++      top: 108%;
++      left: 70%;
++    }
++  
++
++  
++  
++    #CS4273 {
++      top: 20%;
++      left: 80%;
++    }
++  
++    #CS4473 {
++      top: 42%;
++      left: 80%;
++    }
++  
++    #CS4003 {
++      top: 64%;
++      left: 80%;
++    }
++  
++    #none1001 {
++      top: 86%;
++      left: 80%;
++    }
++  
++    #none1001 {
++      top: 108%;
++      left: 80%;
++    }
++  
++
++
++    </style>
++
++    <meta charset="UTF-8">
++    <meta name="viewport" content="width=device-width, initial-scale=1.0">
++    <title>Draggable Div Element in JavaScript | CodingNepal</title>
++    <link rel="stylesheet" href="style.css">
++    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
++</head>
++<body>
++    
++        
++        <div class="wrapper" id=MATH1914>
++            <header>Calculus I</header>
++            <div class="content">
++                <div class="title">MATH1914 Hours: 4</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS1324>
++            <header>Programming</header>
++            <div class="content">
++                <div class="title">CS1324 Hours: 4</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++    
++        
++        <div class="wrapper" id=MATH2924>
++            <header>Calculus II</header>
++            <div class="content">
++                <div class="title">MATH2924 Hours: 4</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS2334>
++            <header>Programming Structures and Abstractions</header>
++            <div class="content">
++                <div class="title">CS2334 Hours: 4</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++    
++        
++        <div class="wrapper" id=MATH2934>
++            <header>Calculus III</header>
++            <div class="content">
++                <div class="title">MATH2934 Hours: 4</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS2813>
++            <header>Discrete Structures</header>
++            <div class="content">
++                <div class="title">CS2813 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS2413>
++            <header>Data Structures</header>
++            <div class="content">
++                <div class="title">CS2413 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++    
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS2614>
++            <header>Computer Organization</header>
++            <div class="content">
++                <div class="title">CS2614 Hours: 4</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS3323>
++            <header>Principles of Programming Languages</header>
++            <div class="content">
++                <div class="title">CS3323 Hours: 3</div>
++            </div>
++        </div>
++        
++    
++        
++        <div class="wrapper" id=CS3203>
++            <header>Software Engineering</header>
++            <div class="content">
++                <div class="title">CS3203 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS3113>
++            <header>Intro to Operating Systems</header>
++            <div class="content">
++                <div class="title">CS3113 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS3823>
++            <header>Theory of Computation</header>
++            <div class="content">
++                <div class="title">CS3823 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=MATH3003>
++            <header>MATH 3000+ Elective</header>
++            <div class="content">
++                <div class="title">MATH3003 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++    
++        
++        <div class="wrapper" id=MATH3333>
++            <header>Linear Algebra</header>
++            <div class="content">
++                <div class="title">MATH3333 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS4003>
++            <header>CS 4000+ Elective</header>
++            <div class="content">
++                <div class="title">CS4003 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=MATH4753>
++            <header>Applied Statistical Methods</header>
++            <div class="content">
++                <div class="title">MATH4753 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++    
++        
++        <div class="wrapper" id=CS4003>
++            <header>CS 4000+ Elective</header>
++            <div class="content">
++                <div class="title">CS4003 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS4413>
++            <header>Algorithim Analysis</header>
++            <div class="content">
++                <div class="title">CS4413 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS4173>
++            <header>Computer Security</header>
++            <div class="content">
++                <div class="title">CS4173 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS4513>
++            <header>Data Management Systems</header>
++            <div class="content">
++                <div class="title">CS4513 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS4003>
++            <header>CS 4000+ Elective</header>
++            <div class="content">
++                <div class="title">CS4003 Hours: 3</div>
++            </div>
++        </div>
++        
++    
++        
++        <div class="wrapper" id=CS4273>
++            <header>Capstone Design Project</header>
++            <div class="content">
++                <div class="title">CS4273 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS4473>
++            <header>Parallel Distributed and Network Programming</header>
++            <div class="content">
++                <div class="title">CS4473 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=CS4003>
++            <header>CS 4000+ Elective</header>
++            <div class="content">
++                <div class="title">CS4003 Hours: 3</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++        <div class="wrapper" id=none1001>
++            <header>none</header>
++            <div class="content">
++                <div class="title">none1001 Hours: 1</div>
++            </div>
++        </div>
++        
++    
++
++    <script>
++const wrappers = document.querySelectorAll(".wrapper");
++
++wrappers.forEach(wrapper => {
++  const header = wrapper.querySelector("header");
++  let isDragging = false;
++
++  function onDrag({movementX, movementY}) {
++    let getStyle = window.getComputedStyle(wrapper);
++    let leftVal = parseInt(getStyle.left);
++    let topVal = parseInt(getStyle.top);
++    wrapper.style.left = `${leftVal + movementX}px`;
++    wrapper.style.top = `${topVal + movementY}px`;
++  }
++
++  header.addEventListener("mousedown", () => {
++    isDragging = true;
++    header.classList.add("active");
++  });
++
++  document.addEventListener("mousemove", (event) => {
++    if (isDragging) {
++      onDrag({
++        movementX: event.movementX,
++        movementY: event.movementY
++      });
++    }
++  });
++
++  document.addEventListener("mouseup", () => {
++    isDragging = false;
++    header.classList.remove("active");
++  });
++});
++
++
++    </script>
++
++</body>
++</html>
+\ No newline at end of file
+Index: Majors.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Majors.py b/Majors.py
+new file mode 100644
+--- /dev/null	(date 1682303216464)
++++ b/Majors.py	(date 1682303216464)
+@@ -0,0 +1,38 @@
++import Course
++
++
++class Major:
++    def __init__(self, freshmen_fall, freshmen_spring, sophomore_fall, sophomore_spring, junior_fall, junior_spring, senior_fall, senior_spring):
++        self.Freshmen_Fall = freshmen_fall
++        self.Freshmen_Spring = freshmen_spring
++        self.Sophomore_Fall = sophomore_fall
++        self.Sophomore_Spring = sophomore_spring
++        self.Junior_Fall = junior_fall
++        self.Junior_Spring = junior_spring
++        self.Senior_Fall = senior_fall
++        self.Senior_Spring = senior_spring
++
++dr_lst = ["course_database/CS.txt","course_database/MATH.txt","course_database/blank.txt"]
++
++subjects = Course.create(dr_lst)
++
++CSlist = subjects[0]
++MATHlist = subjects[1]
++Nonelist = subjects[2]
++
++MATHlist.search("1914")
++
++ComputerScience = Major(
++                        [MATHlist.search("1914"), Nonelist.search("1001"), CSlist.search("1324"), Nonelist.search("1001"), Nonelist.search("1001")],
++                        [MATHlist.search("2924"), CSlist.search("2334"), Nonelist.search("1001"), Nonelist.search("1001")],
++                        [MATHlist.search("2934"), Nonelist.search("1001"), CSlist.search("2813"), CSlist.search("2413"), Nonelist.search("1001")],
++                        [Nonelist.search("1001"), CSlist.search("2614"), Nonelist.search("1001"), CSlist.search("3323")],
++                        [CSlist.search("3203"), CSlist.search("3113"), CSlist.search("3823"), MATHlist.search("3003"), Nonelist.search("1001")],
++                        [MATHlist.search("3333"), CSlist.search("4003"), MATHlist.search("4753"), Nonelist.search("1001"), Nonelist.search("1001")],
++                        [CSlist.search("4003"), CSlist.search("4413"), CSlist.search("4173"), CSlist.search("4513"), CSlist.search("4003")],
++                        [CSlist.search("4273"), CSlist.search("4473"), CSlist.search("4003"), Nonelist.search("1001"), Nonelist.search("1001")])
++
++
++
++ComputerScienceSemesters = [ComputerScience.Freshmen_Fall, ComputerScience.Freshmen_Spring, ComputerScience.Sophomore_Fall, ComputerScience.Sophomore_Spring, ComputerScience.Junior_Fall, ComputerScience.Junior_Spring, ComputerScience.Senior_Fall, ComputerScience.Senior_Spring]
++
+Index: course_database/blank.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course_database/blank.txt b/course_database/blank.txt
+new file mode 100644
+--- /dev/null	(date 1682299633906)
++++ b/course_database/blank.txt	(date 1682299633906)
+@@ -0,0 +1,1 @@
++none,none1001,None,False
+\ No newline at end of file
+Index: style.CSS
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/style.CSS b/style.CSS
+new file mode 100644
+--- /dev/null	(date 1682303575884)
++++ b/style.CSS	(date 1682303575884)
+@@ -0,0 +1,82 @@
++/* Import Google font - Poppins */
++@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
++*{
++  margin: 0;
++  padding: 0;
++  box-sizing: border-box;
++  font-family: "Poppins", sans-serif;
++}
++body{
++  background: #fff;
++}
++::selection{
++  color: darkred;
++  background: #6F36FF;
++}
++.wrapper{
++  position: absolute;
++  top: 50%;
++  left: 50%;
++  max-width: 130px;
++  width: 100%;
++  background: darkred;
++  border-radius: 10px;
++  transform: translate(-50%, -50%);
++  box-shadow: 10px 10px 15px rgba(0,0,0,0.06);
++}
++.wrapper header{
++  font-size: 14px;
++  font-weight: 500;
++  align-items: center;
++  padding: 16px 21px;
++  border-bottom: 1px solid #ccc;
++}
++.wrapper header.active{
++  cursor: move;
++  user-select: none;
++}
++.wrapper .content{
++  display: flex;
++  padding: 0px 30px 0px 40px; /* Top Left Dist Bottom Right Dist*/
++  flex-direction: column;
++  justify-content: center;
++}
++.content .icon{
++  height: 95px;
++  width: 95px;
++  border-radius: 50%;
++  border: 5px solid #6F36FF;
++  display: flex;
++  align-items: center;
++  justify-content: center;
++}
++.content .icon i{
++  color: #6F36FF;
++  font-size: 60px;
++}
++.content .title{
++  margin: 8px 0;
++  font-size: 14px;
++  align-items: center;
++  font-weight: 500;
++}
++.content p{
++  font-size: 12px;
++  text-align: center;
++}
++/*
++#CS1333 {
++  top: 50%;
++  left: 10%;
++}
++
++#CS2337 {
++  top: 30%;
++  left: 40%;
++}
++
++#CS3444 {
++  top: 70%;
++  left: 70%;
++}
++*/
+\ No newline at end of file
+Index: course_database/MATH.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>Precalculus and Trigonometry,MATH1523,None,False\r\nCalculus I,MATH1914,None,False\r\nCalculus II,MATH2924,MATH1914,False\r\nCalculus III,MATH2934,MATH2934,False\r\nDiscrete Mathematics,MATH2513,CS2334 MATH2924/MATH2423,False\r\nIntroduction to Ordinary Differential Equations,MATH3113,MATH2423/MATH2924,False\r\nLinear Algebra,MATH3333,MATH1914/MATH1823,False\r\nIntroduction to Mathematical Statistics,MATH4743,MATH4733,False\r\nApplied Statistical Methods,MATH4753,MATH2924/MATH2423,False\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/course_database/MATH.txt b/course_database/MATH.txt
+--- a/course_database/MATH.txt	(revision 28634c0f81248fd9f82dfc5dfab648bbb34d6f41)
++++ b/course_database/MATH.txt	(date 1682300503306)
+@@ -7,3 +7,4 @@
+ Linear Algebra,MATH3333,MATH1914/MATH1823,False
+ Introduction to Mathematical Statistics,MATH4743,MATH4733,False
+ Applied Statistical Methods,MATH4753,MATH2924/MATH2423,False
++MATH 3000+ Elective,MATH3003,None,False

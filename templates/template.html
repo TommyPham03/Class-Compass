@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1>Freshman Fall</h1>
+    <style>
+        *{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: white;
+}
+::selection{
+  color: #fff;
+  background: darkred;
+}
+.wrapper{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 125px;
+  width: 100%;
+  background: white;
+  border-radius: 10px;
+  transform: translate(-50%, -50%);
+  box-shadow: 10px 10px 15px rgba(0,0,0,0.06);
+  border: 4px solid black;
+}
+.wrapper header{
+  font-size: 15px;
+  font-weight: 500;
+  align-items: center;
+  padding: 16px 21px;
+  border-bottom: 1px solid white;
+  color: white;
+  background: darkred;
+  text-align: center;
+}
+.wrapper header.active{
+  cursor: move;
+  user-select: none;
+}
+.wrapper .content{
+  display: flex;
+  padding: 0px 25px 0px 10px; /* Top Left Dist Bottom Right Dist*/
+  flex-direction: column;
+  justify-content: center;
+}
+.content .icon{
+  height: 95px;
+  width: 95px;
+  border-radius: 50%;
+  border: 5px solid #6F36FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .icon i{
+  color: #6F36FF;
+  font-size: 60px;
+}
+.content .title{
+  margin: 10px 0;
+  font-size: 12px;
+  align-items: center;
+  font-weight: 500;
+  color: black;
+  background: white;
+  text-align: center;
+}
+.content p{
+  font-size: 8px;
+  text-align: center;
+  color: white;
+}
+{% for semester in semesters %}
+  {% set semester_index = loop.index0 %}
+  {% for course in semester %}
+    #{{course.get_code()}} {
+      top: {{ (loop.index0) * 22 + 20}}%;
+      left: {{ semester_index * 10 + 10 }}%;
+    }
+  {% endfor %}
+{% endfor %}
+
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Div Element in JavaScript | CodingNepal</title>
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    {% for semester in semesters %}
+        {% for course in semester %}
+        <div class="wrapper" id={{course.get_code()}}>
+            <header>{{ course.get_name() }}</header>
+            <div class="content">
+                <div class="title">{{ course.get_code() }} Hours: {{ course.get_hours() }}</div>
+            </div>
+        </div>
+        {% endfor %}
+    {% endfor %}
+
+    <script>
+const wrappers = document.querySelectorAll(".wrapper");
+
+wrappers.forEach(wrapper => {
+  const header = wrapper.querySelector("header");
+  let isDragging = false;
+
+  function onDrag({movementX, movementY}) {
+    let getStyle = window.getComputedStyle(wrapper);
+    let leftVal = parseInt(getStyle.left);
+    let topVal = parseInt(getStyle.top);
+    wrapper.style.left = `${leftVal + movementX}px`;
+    wrapper.style.top = `${topVal + movementY}px`;
+  }
+
+  header.addEventListener("mousedown", () => {
+    isDragging = true;
+    header.classList.add("active");
+  });
+
+  document.addEventListener("mousemove", (event) => {
+    if (isDragging) {
+      onDrag({
+        movementX: event.movementX,
+        movementY: event.movementY
+      });
+    }
+  });
+
+  document.addEventListener("mouseup", () => {
+    isDragging = false;
+    header.classList.remove("active");
+  });
+});
+
+
+    </script>
+
+</body>
+</html>
