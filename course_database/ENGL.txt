@@ -1,0 +1,2 @@
+English Composition,ENGL1113,None,False
+English Composition,ENGL1213,ENGL1113,False
