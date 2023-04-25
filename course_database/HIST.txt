@@ -1,2 +1,2 @@
 United States to 1865,HIST1483,None,False
-United States 1865 to Present,HIST1493,False
+United States 1865 to Present,HIST1493,None,False
